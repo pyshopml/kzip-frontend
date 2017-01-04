@@ -1,0 +1,55 @@
+.main aside {
+  .link {
+    color : white;
+    display: block;
+    padding-left : 12px;
+    
+    font-size : 0.82em;
+    font-family: 'PT Sans', sans-serif;
+    font-weight : bold;
+    
+    span {
+      margin-right : 8px;
+    } // span
+
+  } // .link
+
+  .nav-link {
+    padding : 12px 12px;
+    color : $main-text-color;
+    text-decoration : none;
+
+    &:hover {
+      background: #a7b3cb;
+      color : #fff;
+    }
+
+  } // .nav-link
+
+  .logo-area {
+    background: $logo-bg;
+    height: 65px;
+    
+  
+    h2 {  
+      color : $main-area-bg;
+      line-height : 65px;
+      text-align: center;
+      font-weight : bold;
+      font-size : 1.2em;
+    } // h2
+
+  } // .logo-area
+
+  .auth-bar {
+    height: 65px;
+    line-height : 65px;
+    border-bottom : 1px solid $border-color;
+
+    a {
+      
+    }
+
+  } // .auth-bar
+
+} // .main aside 

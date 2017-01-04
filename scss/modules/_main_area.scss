@@ -1,0 +1,30 @@
+.main section .main-area {
+  padding : 16px;
+  height : 93.2vh;
+
+  .auth-form {
+    width : 60%;
+    padding-top : 40px;
+    margin : 0 auto;
+
+    h2 {
+      font-weight : bold;
+      font-size : 1.2em;
+      margin-bottom : 16px;
+    }
+
+    & > div {
+      margin-top: 22px;
+
+      a {
+        font-size : 0.9em;
+        text-decoration: underline;
+
+        &:last-child {
+          float : right;
+        }
+      } // a
+    } // div
+  } // .auth-form
+
+};
