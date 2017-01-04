@@ -11,12 +11,21 @@ import App from './components/App.jsx';
 
 // router related 
 import {Router, hashHistory} from 'react-router';
+import {syncHistoryWithStore} from 'react-router-redux';
 import routes from './config/routes.jsx';
+
+import configStore from './store/configureStore.js';
+import {Provider} from 'react-redux';
+
+const store = configStore();
+const history = syncHistoryWithStore(hashHistory, store);
 
 const Main = ({store}) => {
   return (
-    <Router history={hashHistory} routes={routes} />
+    <Provider store={store}>
+      <Router history={hashHistory} routes={routes} />
+    </Provider>
   );
 };
 
-render(<Main />, document.getElementById('main'));
+render(<Main store={store} />, document.getElementById('main'));
