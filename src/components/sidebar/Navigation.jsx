@@ -8,13 +8,7 @@ const Navigation = () => {
         <li>
           <Link className="link nav-link" to="/complains">
             <span className="glyphicon glyphicon-book" />
-            Жалобы
-          </Link>
-        </li>
-        <li>
-          <Link className="link nav-link" to="/suggestions">
-            <span className="glyphicon glyphicon-list-alt" />
-            Предложения
+            Заявки
           </Link>
         </li>
       </ul>

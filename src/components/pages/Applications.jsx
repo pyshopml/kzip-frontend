@@ -1,13 +1,13 @@
 import React, {createClass} from 'react';
 
-const Suggestions = createClass({
+const Applications = createClass({
   render () {
     return (
       <div>
-        <h2>Предложения</h2>
+        <h2>Заявки</h2>
       </div>
     );
   }
 });
 
-export default Suggestions;
+export default Applications;
