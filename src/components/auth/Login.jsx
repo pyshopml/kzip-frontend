@@ -1,25 +1,25 @@
-import React from 'react'
+import React, {createClass} from 'react'
 import {Link} from 'react-router';
+import LoginForm from './LoginForm.jsx';
 
-const Login = () => {
-  return (
-    <section className="auth-form">
-      <h2>Вход</h2>
-      <form>
-        <div className="form-group">
-          <input type="email" className="form-control" id="email" placeholder="E-mail" />
+const Login = createClass({
+
+  handleSubmit (vals) {
+    console.log(vals);
+  },
+
+  render () {
+    return (
+      <section className="auth-form">
+        <h2>Вход</h2>
+        <LoginForm onSubmit={this.handleSubmit} />
+        <div>
+          <Link to="">Восстановить Пароль</Link>
+          <Link to="/signup">Создать аккаунт</Link>
         </div>
-        <div className="form-group">
-          <input type="password" className="form-control" id="password" placeholder="Пароль" />
-        </div>
-        <button className="btn btn-primary">Войти</button>
-      </form>
-      <div>
-        <Link to="">Восстановить Пароль</Link>
-        <Link to="/signup">Создать аккаунт</Link>
-      </div>
-    </section>
-  );
-};
+      </section>
+    );
+  }
+});
 
 export default Login;
