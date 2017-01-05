@@ -23,7 +23,7 @@ const LoginForm = createClass({
       return 'Необходимо';
     } 
 
-    this.setState({ passwordValid : true });
+    this.setState({ emailValid : true });
     return undefined;
   },
 
