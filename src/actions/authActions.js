@@ -1,11 +1,14 @@
 import {firebase} from '../utils/auth.js';
+import {push} from 'react-router-redux';
 
 const signUpStarted = () => {
   return { type : 'SIGNUP_STARTED' };
 }
 
 const signUpFinished = () => {
-  return { type : 'SIGNUP_FINISHED' };
+  return (dispatch) => {
+    dispatch( push('/') )
+  }
 }
 
 const signUpFailed = (err) => {

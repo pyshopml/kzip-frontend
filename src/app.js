@@ -23,7 +23,7 @@ const history = syncHistoryWithStore(hashHistory, store);
 const Main = ({store}) => {
   return (
     <Provider store={store}>
-      <Router history={hashHistory} routes={routes} />
+      <Router history={history} routes={routes} />
     </Provider>
   );
 };

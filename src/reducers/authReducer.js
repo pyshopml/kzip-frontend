@@ -3,9 +3,6 @@ export default (state={}, action) => {
     case 'SIGNUP_STARTED':
       return state;
 
-    case 'SIGNUP_FINISHED':
-      return state;
-
     case 'SIGNUP_FAILED':
       const errCode = action.err.code;
       const errMsg = action.err.message;
