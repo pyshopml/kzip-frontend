@@ -7,7 +7,6 @@ const email = value =>
   value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ?
   'Не корректный E-mail' : undefined
 
-
 const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
   <div className={error ? "form-group has-error" : "form-group"}>
     <div className="input-field">
