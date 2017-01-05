@@ -1,6 +1,6 @@
 import React, {createClass} from 'react';
 import {Field, reduxForm} from 'redux-form';
-import {isEmpty, isNil} from 'ramda';
+import {isNil} from 'ramda';
 
 const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
   <div className="input-field">
