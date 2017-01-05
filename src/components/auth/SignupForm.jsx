@@ -1,15 +1,14 @@
+/* ------------------------------------------------------------------------------
+* SignupForm.jsx
+*
+* Signup Form component
+*
+* Nick Luparev nikita.luparev@gmail.com
+------------------------------------------------------------------------------- */
 import React, {createClass} from 'react';
 import {Field, reduxForm} from 'redux-form';
-import {notEmpty, minLength, passwordEqual} from '../../utils/form_validations.js'
-
-const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
-  <div className={error ? "form-group has-error" : "form-group"}>
-    <div className="input-field">
-      <input {...input} placeholder={label} type={type} className="form-control" />
-      { touched && (error && <span className="error-msg">{error}</span>) }
-    </div>
-  </div>
-);
+import {notEmpty, minLength, passwordEqual, withoutSpecialChars} from '../../utils/form_validations.js';
+import RenderField from './RenderField.jsx';
 
 const SignupForm = ({handleSubmit}) => {
 
@@ -17,28 +16,28 @@ const SignupForm = ({handleSubmit}) => {
     <form onSubmit={handleSubmit}>
       <Field 
         type="text" 
-        component={renderField}
+        component={RenderField}
         name="name" 
         placeholder="Имя"
-        validate={[ notEmpty, minLength(6) ]} />
+        validate={[ notEmpty, minLength(6), withoutSpecialChars ]} />
 
       <Field 
         type="email" 
-        component={renderField}
+        component={RenderField}
         name="email" 
         placeholder="E-mail"
         validate={[ notEmpty ]} />
 
       <Field 
         type="password" 
-        component={renderField}
+        component={RenderField}
         name="password" 
         placeholder="Пароль"
         validate={[ notEmpty, minLength(6) ]} />
 
       <Field 
         type="password" 
-        component={renderField}
+        component={RenderField}
         name="passwordConfirmation" 
         placeholder="Пароль еще раз"
         validate={[ notEmpty, passwordEqual ]} />
