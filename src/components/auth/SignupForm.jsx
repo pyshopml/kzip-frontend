@@ -1,11 +1,6 @@
 import React, {createClass} from 'react';
 import {Field, reduxForm} from 'redux-form';
-import {isEmpty} from 'ramda';
-
-// validations
-const required = value => value ? undefined : 'Необходимо'
-const minLength = min => str =>
-  str && (str.length < min) ? `Должно быть не меньше ${min} символов` : undefined
+import {notEmpty, minLength, passwordEqual} from '../../utils/form_validations.js'
 
 const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
   <div className={error ? "form-group has-error" : "form-group"}>
@@ -16,11 +11,6 @@ const renderField = ({ input, label, type, meta: { touched, error, warning } }) 
   </div>
 );
 
-
-const passwordEqual = (value, {password}) => 
-  value === password ? undefined : 'Пароли должны совпадать'
-
-
 const SignupForm = ({handleSubmit}) => {
 
   return (
@@ -30,33 +20,33 @@ const SignupForm = ({handleSubmit}) => {
         component={renderField}
         name="name" 
         placeholder="Имя"
-        validate={[ required, minLength(6) ]} />
+        validate={[ notEmpty, minLength(6) ]} />
 
       <Field 
         type="email" 
         component={renderField}
         name="email" 
         placeholder="E-mail"
-        validate={[ required ]} />
+        validate={[ notEmpty ]} />
 
       <Field 
         type="password" 
         component={renderField}
         name="password" 
         placeholder="Пароль"
-        validate={[ required, minLength(6) ]} />
+        validate={[ notEmpty, minLength(6) ]} />
 
       <Field 
         type="password" 
         component={renderField}
         name="passwordConfirmation" 
         placeholder="Пароль еще раз"
-        validate={[ required, passwordEqual ]} />
+        validate={[ notEmpty, passwordEqual ]} />
 
       <button className="btn btn-primary">Зарегистрироваться</button>
     </form>
   );
-  
+
 };
 
 export default reduxForm({

@@ -1,8 +1,6 @@
 import React, {createClass} from 'react';
 import {Field, reduxForm} from 'redux-form';
-
-// validations
-const required = value => value ? undefined : 'Необходимо'
+import {notEmpty} from '../../utils/form_validations.js'
 
 const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
   <div className={error ? "form-group has-error" : "form-group"}>
@@ -21,13 +19,13 @@ const LoginForm = ({handleSubmit}) => {
         component={renderField}
         name="email" 
         placeholder="E-mail"
-        validate={required} />
+        validate={notEmpty} />
       <Field 
         type="password" 
         component={renderField}
         name="password" 
         placeholder="Пароль"
-        validate={required} />
+        validate={notEmpty} />
       <button type="submit" className="btn btn-primary">Войти</button>
     </form>  
   );
