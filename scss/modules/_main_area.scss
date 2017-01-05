@@ -13,6 +13,20 @@
       margin-bottom : 16px;
     }
 
+    form {
+      .input-field {
+        position : relative;
+      } // .input-field
+
+      .error-msg {
+        color : $error-color;
+        position : absolute;
+        top : 9px;
+        right : 8px;
+        font-size : 0.9em;
+      } // .error-msg
+    } // form
+
     & > div {
       margin-top: 22px;
 
