@@ -1,6 +1,5 @@
 import React, {createClass} from 'react';
 import {Field, reduxForm} from 'redux-form';
-import {isNil} from 'ramda';
 
 // validations
 const required = value => value ? undefined : 'Необходимо'
@@ -18,29 +17,25 @@ const renderField = ({ input, label, type, meta: { touched, error, warning } }) 
   </div>
 );
 
-const LoginForm = createClass({
-  render () {
-    let {handleSubmit} = this.props;
-
-    return (
-      <form onSubmit={handleSubmit}>
-        <Field 
-          type="email" 
-          component={renderField}
-          name="email" 
-          placeholder="E-mail"
-          validate={[ required, email ]} />
-        <Field 
-          type="password" 
-          component={renderField}
-          name="password" 
-          placeholder="Пароль"
-          validate={required} />
-        <button type="submit" className="btn btn-primary">Войти</button>
-      </form>  
-    );
-  }
-}); 
+const LoginForm = ({handleSubmit}) => {
+  return (
+    <form onSubmit={handleSubmit}>
+      <Field 
+        type="email" 
+        component={renderField}
+        name="email" 
+        placeholder="E-mail"
+        validate={[ required, email ]} />
+      <Field 
+        type="password" 
+        component={renderField}
+        name="password" 
+        placeholder="Пароль"
+        validate={required} />
+      <button type="submit" className="btn btn-primary">Войти</button>
+    </form>  
+  );
+};
 
 export default reduxForm({
   form : 'login-form'
