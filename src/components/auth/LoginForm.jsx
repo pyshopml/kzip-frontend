@@ -7,7 +7,7 @@
 ------------------------------------------------------------------------------- */
 import React, {createClass} from 'react';
 import {Field, reduxForm} from 'redux-form';
-import {notEmpty, withoutSpaces} from '../../utils/form_validations.js'
+import {notEmpty} from '../../utils/form_validations.js'
 import RenderField from './RenderField.jsx';
 
 const LoginForm = ({handleSubmit}) => {
@@ -18,7 +18,7 @@ const LoginForm = ({handleSubmit}) => {
         component={RenderField}
         name="email" 
         placeholder="E-mail"
-        validate={[notEmpty, withoutSpaces]} />
+        validate={notEmpty} />
       <Field 
         type="password" 
         component={RenderField}

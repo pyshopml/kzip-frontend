@@ -7,9 +7,6 @@
 ------------------------------------------------------------------------------- */
 const notEmpty = value => value ? undefined : 'Необходимо'
 
-const withoutSpaces = str => 
-  str && /^(\s|\S)+$/i.test(str) ? 'Не должно быть пробелов' : undefined;
-
 const withoutSpecialChars = str => 
   str && /\W+/i.test(str) ? 'Только буквы, числа и нижнее подчеркивание' : undefined;
 
@@ -19,4 +16,4 @@ const minLength = min => str =>
 const passwordEqual = (value, {password}) => 
   value === password ? undefined : 'Пароли должны совпадать'
 
-export {notEmpty, minLength, passwordEqual, withoutSpaces, withoutSpecialChars};
+export {notEmpty, minLength, passwordEqual, withoutSpecialChars};
