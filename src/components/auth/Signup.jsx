@@ -2,7 +2,7 @@ import React, {createClass, PropTypes} from 'react'
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
 import SignupForm from './SignupForm.jsx';
-import {signUp} from '../../actions/authActions.js';
+import {signUp} from '../../actions/signupActions.js';
 
 const Signup = createClass({
   propTypes : {
