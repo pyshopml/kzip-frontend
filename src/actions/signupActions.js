@@ -7,7 +7,7 @@ const signUpStarted = () => {
 
 const signUpFinished = () => {
   return (dispatch) => {
-    dispatch( push('/') )
+    dispatch( push('/applications') )
   }
 }
 

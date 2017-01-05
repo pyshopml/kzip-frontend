@@ -8,7 +8,7 @@
 import {combineReducers} from 'redux';
 import {routerReducer} from 'react-router-redux';
 import {reducer as formReducer} from 'redux-form';
-import singup from './signupReducer.js';
+import signup from './signupReducer.js';
 
 export default combineReducers({
   routing : routerReducer,
