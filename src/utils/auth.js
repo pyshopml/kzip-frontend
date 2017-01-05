@@ -45,4 +45,4 @@ const onAuthChange = (cb) => {
   firebase.auth().onAuthStateChanged(cb);
 };
 
-export { firebase, signUp, signIn, signOut, onAuthChange, db };
+export {firebase};

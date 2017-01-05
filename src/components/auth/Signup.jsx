@@ -1,10 +1,17 @@
-import React, {createClass} from 'react'
+import React, {createClass, PropTypes} from 'react'
 import {Link} from 'react-router';
+import {connect} from 'react-redux';
 import SignupForm from './SignupForm.jsx';
+import {signUp} from '../../actions/authActions.js';
 
 const Signup = createClass({
+  propTypes : {
+    signUp : PropTypes.func
+  },
+
   handleSubmit (vals) {
-    console.log(vals);
+    let {signUp} = this.props;
+    signUp(vals);
   },
 
   render () {
@@ -21,4 +28,10 @@ const Signup = createClass({
   }
 });
 
-export default Signup;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signUp : (obj) => dispatch( signUp(obj) )
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Signup);
