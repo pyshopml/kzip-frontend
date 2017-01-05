@@ -17,7 +17,7 @@ gulp.task('browser-sync', () => {
 
 gulp.task('minify-css', function() {
   return gulp.src('./build/main.css')
-    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(cleanCSS({ compatibility: 'ie8', processImport: false }))
     .pipe(gulp.dest('./build'));
 });
 
