@@ -3,16 +3,8 @@ import {Link} from 'react-router';
 import {connect} from 'react-redux';
 import SignupForm from './SignupForm.jsx';
 import {signUp} from '../../actions/signupActions.js';
-import {isEmpty, unless} from 'ramda';
-
-const AlertBox = ({error}) => {
-  return (
-    <div className="alert alert-danger alert-dismissible" role="alert">
-      <button type="button" className="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      {error}
-    </div>
-  );
-};
+import {isEmpty} from 'ramda';
+import AlertBox from './AlertBox.jsx';
 
 const Signup = createClass({
   propTypes : {
