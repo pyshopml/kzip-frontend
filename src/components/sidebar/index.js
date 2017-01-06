@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import {authChanged} from '../../actions/authActions.js';
 import {firebase} from '../../utils/auth.js';
-import Userbar from  './Userbar.jsx';
+import UserPanel from  './UserPanel.jsx';
 
 const Sidebar = createClass({
   propTypes : {
@@ -41,7 +41,7 @@ const Sidebar = createClass({
           <h2>ЯГражданин</h2>
         </div>
 
-        {user ? <Userbar user={user} /> : <Authbar /> }
+        {user ? <UserPanel user={user} /> : <Authbar /> }
         <Navigation />
         
       </aside> 

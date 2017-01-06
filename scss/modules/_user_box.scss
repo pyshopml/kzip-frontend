@@ -1,0 +1,25 @@
+.main aside .user-panel {
+  color : white;
+  display: block;
+  padding-left : 12px;
+  line-height : 65px;
+  position : relative;
+  font-size : 1em;
+  font-family: 'PT Sans', sans-serif;
+  font-weight : bold;
+
+  .control {
+    position : absolute;
+    right : 10px;
+    top : 24px;
+    transition: all .5s ease;
+
+    &:hover {
+      cursor : pointer;
+    }
+  } // .control
+
+  span {
+    margin-right : 8px;
+  } // span
+} // .user-bar

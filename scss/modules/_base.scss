@@ -48,3 +48,28 @@ body {
 .hidden {
   visibility : hidden;
 }
+
+.nav-link {
+  display: block;
+  padding : 12px 12px;
+  color : $main-text-color;
+  font-family: 'PT Sans', sans-serif;
+  font-weight : bold;
+
+  &.dark {
+    color : white;
+    &:hover {
+      background: $user-panel-bg-hover;  
+    }
+  } // &.dark
+
+  span {
+    margin-right : 8px;
+  }
+
+  &:hover {
+    background: #a7b3cb;
+    color : #fff;
+    text-decoration: none;
+  }
+} // .nav-link
