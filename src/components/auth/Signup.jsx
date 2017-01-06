@@ -16,9 +16,9 @@ const AlertBox = ({error}) => {
 
 const Signup = createClass({
   propTypes : {
-    signUp : PropTypes.func,
-    errorMsg : PropTypes.string,
-    inProgress : PropTypes.bool
+    signUp : PropTypes.func.isRequired,
+    errorMsg : PropTypes.string.isRequired,
+    inProgress : PropTypes.bool.isRequired
   },
 
   handleSubmit (vals) {

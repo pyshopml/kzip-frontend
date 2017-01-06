@@ -1,11 +1,16 @@
-import React, {createClass} from 'react'
+import React, {createClass, PropTypes} from 'react'
 import {Link} from 'react-router';
 import LoginForm from './LoginForm.jsx';
+import {connect} from 'react-redux';
+import {login} from '../../actions/loginActions.js';
 
 const Login = createClass({
+  propTypes : {
+    login : PropTypes.func.isRequired
+  },
 
   handleSubmit (vals) {
-    console.log(vals);
+    this.props.login(vals)
   },
 
   render () {
@@ -22,4 +27,10 @@ const Login = createClass({
   }
 });
 
-export default Login;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login : (obj) => dispatch( login(obj) )
+  }
+};
+
+export default connect(null, mapDispatchToProps)(Login);
