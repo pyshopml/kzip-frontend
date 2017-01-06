@@ -17,7 +17,8 @@ const AlertBox = ({error}) => {
 const Signup = createClass({
   propTypes : {
     signUp : PropTypes.func,
-    errorMsg : PropTypes.string
+    errorMsg : PropTypes.string,
+    inProgress : PropTypes.bool
   },
 
   handleSubmit (vals) {
@@ -25,13 +26,13 @@ const Signup = createClass({
   },
 
   render () {
-    let {errorMsg} = this.props;
+    let {errorMsg, inProgress} = this.props;
     
     return (
       <section className="auth-form">
         { isEmpty(errorMsg) ? "" : <AlertBox error={errorMsg} /> }
         <h2>Регистрация</h2>
-        <SignupForm onSubmit={this.handleSubmit} />
+        <SignupForm onSubmit={this.handleSubmit} inProgress={inProgress} />
         <div>
           <Link to="">Восстановить Пароль</Link>
           <Link to="/login">Войти используя аккаунт</Link>
@@ -43,7 +44,8 @@ const Signup = createClass({
 
 const mapStateToProps = ({ signup }, ownProps) => {
   return {
-    errorMsg : signup.errorMsg
+    errorMsg : signup.errorMsg,
+    inProgress : signup.inProgress
   }
 }
 

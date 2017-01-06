@@ -11,7 +11,7 @@ import {notEmpty, minLength, passwordEqual, withoutSpecialChars} from '../../uti
 import RenderField from './RenderField.jsx';
 import {Spinner, Button} from 'elemental';
 
-const SignupForm = ({handleSubmit}) => {
+const SignupForm = ({handleSubmit, inProgress}) => {
 
   return (
     <form onSubmit={handleSubmit}>
@@ -44,8 +44,7 @@ const SignupForm = ({handleSubmit}) => {
         validate={[ notEmpty, passwordEqual ]} />
 
       <button className="btn btn-primary">
-        <Spinner type="inverted" />
-        Зарегистрироваться
+        { inProgress ? <Spinner type="inverted" /> : "Зарегистрироваться" }
       </button>
     </form>
   );
