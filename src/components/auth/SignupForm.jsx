@@ -9,6 +9,7 @@ import React, {createClass} from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {notEmpty, minLength, passwordEqual, withoutSpecialChars} from '../../utils/form_validations.js';
 import RenderField from './RenderField.jsx';
+import {Spinner, Button} from 'elemental';
 
 const SignupForm = ({handleSubmit}) => {
 
@@ -42,7 +43,10 @@ const SignupForm = ({handleSubmit}) => {
         placeholder="Пароль еще раз"
         validate={[ notEmpty, passwordEqual ]} />
 
-      <button className="btn btn-primary">Зарегистрироваться</button>
+      <button className="btn btn-primary">
+        <Spinner type="inverted" />
+        Зарегистрироваться
+      </button>
     </form>
   );
 
