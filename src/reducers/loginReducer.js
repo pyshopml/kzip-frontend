@@ -12,7 +12,8 @@ export default (state=model, action) => {
       return Object.assign({}, state, { inProgress : false, errorMsg : "" });      
 
     case 'LOGIN_FAILED':
-      return Object.assign({}, state, { inProgress : false, errorMsg : action.error.message });
+      let {error} = action;
+      return Object.assign({}, state, { inProgress : false, errorMsg : error.message });
 
     case "@@router/LOCATION_CHANGE":
       return Object.assign({}, state, { inProgress : false, errorMsg : "" });

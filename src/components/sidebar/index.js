@@ -1,21 +1,74 @@
-import React, {createClass} from 'react';
+import React, {createClass, PropTypes} from 'react';
 import Navigation from './Navigation.jsx';
 import Authbar from './Authbar.jsx';
+import {connect} from 'react-redux';
+import {Link} from 'react-router';
+import {authChanged} from '../../actions/authActions.js';
+import {firebase} from '../../utils/auth.js';
+
+const Userbar = ({user}) => {
+  return (
+    <div className="auth-bar">
+      <div className="user-box">
+        <span className="glyphicon glyphicon-user" />
+        {user.email}
+      </div>
+    </div>
+  );
+};
 
 const Sidebar = createClass({
+  propTypes : {
+    user : PropTypes.object,
+    authUpdate : PropTypes.func.isRequired
+  },
+
+  getInitialState() {
+    return {
+      unsub : null  
+    }
+  },
+
+  componentDidMount () {
+    let {authUpdate} = this.props;
+
+    const unsub = firebase.auth().onAuthStateChanged( (user) => {
+      authUpdate(user);
+    });
+    this.setState({ unsub });
+  },
+
+  componentWillUnmount () {
+    this.state.unsub();
+  },
+
   render () {
+    let {user} = this.props;
+
     return (
       <aside>
         <div className="logo-area"> 
           <h2>ЯГражданин</h2>
         </div>
 
-        <Authbar />
+        {user ? <Userbar user={user} /> : <Authbar /> }
         <Navigation />
         
       </aside> 
-    );
+    );  
   }
 });
 
-export default Sidebar;
+const mapStateToProps = ({ auth }, ownProps) => {
+  return {
+    user : auth.user
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    authUpdate : (user) => dispatch( authChanged(user) ) 
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

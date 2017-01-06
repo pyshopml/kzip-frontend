@@ -16,8 +16,6 @@ import routes from './config/routes.jsx';
 
 import configStore from './store/configureStore.js';
 import {Provider} from 'react-redux';
-import {firebase} from './utils/auth.js';
-import {authChanged} from './actions/authActions.js';
 
 const store = configStore();
 const history = syncHistoryWithStore(hashHistory, store);
@@ -31,8 +29,4 @@ const Main = ({store}) => {
 };
 
 render(<Main store={store} />, document.getElementById('main'));
-
-firebase.auth().onAuthStateChanged( (user) => {
-  store.dispatch( authChanged(user) );
-});
 
