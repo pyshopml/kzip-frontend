@@ -5,17 +5,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import {authChanged} from '../../actions/authActions.js';
 import {firebase} from '../../utils/auth.js';
-
-const Userbar = ({user}) => {
-  return (
-    <div className="auth-bar">
-      <div className="user-box">
-        <span className="glyphicon glyphicon-user" />
-        {user.email}
-      </div>
-    </div>
-  );
-};
+import Userbar from  './Userbar.jsx';
 
 const Sidebar = createClass({
   propTypes : {
