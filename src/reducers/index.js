@@ -10,10 +10,12 @@ import {routerReducer} from 'react-router-redux';
 import {reducer as formReducer} from 'redux-form';
 import signup from './signupReducer.js';
 import login from './loginReducer.js';
+import auth from './authReducer.js';
 
 export default combineReducers({
   routing : routerReducer,
   form : formReducer,
   signup,
-  login
+  login,
+  auth
 });
