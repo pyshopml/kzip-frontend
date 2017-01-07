@@ -1,30 +1,31 @@
 const model = {
-  inProgress : false,
-  errorMsg : ""
+  inProgress: false,
+  errorMsg: '',
 };
 
-export default (state=model, action) => {
+export default (state = model, action) => {
+  const { error } = action;
+
   switch (action.type) {
     case 'LOGIN_STARTED':
-      return Object.assign({}, state, { inProgress : true });
+      return Object.assign({}, state, { inProgress: true });
 
     case 'LOGIN_FINISHED':
-      return Object.assign({}, state, { inProgress : false, errorMsg : "" });      
+      return Object.assign({}, state, { inProgress: false, errorMsg: '' });
 
     case 'LOGIN_FAILED':
-      let {error} = action;
-      return Object.assign({}, state, { inProgress : false, errorMsg : error.message });
+      return Object.assign({}, state, { inProgress: false, errorMsg: error.message });
 
-    case "@@router/LOCATION_CHANGE":
-      return Object.assign({}, state, { inProgress : false, errorMsg : "" });
+    case '@@router/LOCATION_CHANGE':
+      return Object.assign({}, state, { inProgress: false, errorMsg: '' });
 
-    case "@@redux-form/CHANGE": 
-      return Object.assign({}, state, { errorMsg : "" });
+    case '@@redux-form/CHANGE':
+      return Object.assign({}, state, { errorMsg: '' });
 
     case 'LOGOUT_STARTED':
       return state;
 
-    default: 
+    default:
       return state;
   }
-}
+};

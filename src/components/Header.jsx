@@ -1,13 +1,9 @@
-import React, {createClass} from 'react';
+import React from 'react';
 
-const Header = createClass({
-  render () {
-    return (
-      <header>
-        <input type="text" placeholder="Найти интересующую Вас информацию" />
-      </header>
-    );
-  }
-});
+const Header = () => (
+  <header>
+    <input type="text" placeholder="Найти интересующую Вас информацию" />
+  </header>
+);
 
 export default Header;

@@ -1,7 +1,6 @@
-const authChanged = (user) => {
-  return { type : "AUTH_CHANGED", user };
-};
+const authChanged = user => ({
+  type: 'AUTH_CHANGED',
+  user,
+});
 
-export {authChanged};
-
-
+export default authChanged;

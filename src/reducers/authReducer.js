@@ -1,16 +1,16 @@
 const model = {
-  user : null
+  user: null,
 };
 
-export default (state=model, action) => {
+export default (state = model, action) => {
   switch (action.type) {
-    case 'AUTH_CHANGED': 
-      return Object.assign({}, state, { user : action.user });
+    case 'AUTH_CHANGED':
+      return Object.assign({}, state, { user: action.user });
 
     case 'LOGOUT_FINISHED':
-      return Object.assign({}, state, { user : null });
+      return Object.assign({}, state, { user: null });
 
-    default: 
+    default:
       return state;
   }
-}
+};

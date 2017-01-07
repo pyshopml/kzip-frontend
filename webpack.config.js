@@ -19,9 +19,20 @@ var config = {
         query : {
           presets : ['es2015', 'react']
         }
+      },
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loaders: ['babel-loader', 'eslint-loader']
       }
     ]
-  }
+  },
+  eslint: {
+    configFile: './.eslintrc'
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
 };
 
 module.exports = config;

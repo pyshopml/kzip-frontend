@@ -1,28 +1,28 @@
-import React, {createClass, PropTypes} from 'react'
-import {Link} from 'react-router';
-import {connect} from 'react-redux';
-import SignupForm from './SignupForm.jsx';
-import {signUp} from '../../actions/signupActions.js';
-import {isEmpty} from 'ramda';
-import AlertBox from './AlertBox.jsx';
+import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
+import { connect } from 'react-redux';
+import { isEmpty } from 'ramda';
+import SignupForm from './SignupForm';
+import signUp from '../../actions/signupActions';
+import AlertBox from './AlertBox';
 
-const Signup = createClass({
-  propTypes : {
-    signUp : PropTypes.func.isRequired,
-    errorMsg : PropTypes.string.isRequired,
-    inProgress : PropTypes.bool.isRequired
-  },
+class Signup extends Component {
+  constructor() {
+    super();
 
-  handleSubmit (vals) {
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(vals) {
     this.props.signUp(vals);
-  },
+  }
 
-  render () {
-    let {errorMsg, inProgress} = this.props;
-    
+  render() {
+    const { errorMsg, inProgress } = this.props;
+
     return (
       <section className="auth-form">
-        { isEmpty(errorMsg) ? "" : <AlertBox error={errorMsg} /> }
+        { isEmpty(errorMsg) ? '' : <AlertBox error={errorMsg} /> }
         <h2>Регистрация</h2>
         <SignupForm onSubmit={this.handleSubmit} inProgress={inProgress} />
         <div>
@@ -30,21 +30,23 @@ const Signup = createClass({
           <Link to="/login">Войти используя аккаунт</Link>
         </div>
       </section>
-    );  
+    );
   }
+}
+
+Signup.propTypes = {
+  signUp: PropTypes.func.isRequired,
+  errorMsg: PropTypes.string.isRequired,
+  inProgress: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = ({ signup }) => ({
+  errorMsg: signup.errorMsg,
+  inProgress: signup.inProgress,
 });
 
-const mapStateToProps = ({ signup }, ownProps) => {
-  return {
-    errorMsg : signup.errorMsg,
-    inProgress : signup.inProgress
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    signUp : (obj) => dispatch( signUp(obj) )
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  signUp: obj => dispatch(signUp(obj)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Signup);

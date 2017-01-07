@@ -6,27 +6,23 @@
 * Nick Luparev nikita.luparev@gmail.com
 ------------------------------------------------------------------------------- */
 import React from 'react';
-import {render} from 'react-dom';
-import App from './components/App.jsx';
+import { render } from 'react-dom';
+import { Router, hashHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
+import { Provider } from 'react-redux';
+import './components/App';
+import routes from './config/routes';
+import configStore from './store/configureStore';
 
-// router related 
-import {Router, hashHistory} from 'react-router';
-import {syncHistoryWithStore} from 'react-router-redux';
-import routes from './config/routes.jsx';
-
-import configStore from './store/configureStore.js';
-import {Provider} from 'react-redux';
 
 const store = configStore();
 const history = syncHistoryWithStore(hashHistory, store);
 
-const Main = ({store}) => {
-  return (
-    <Provider store={store}>
-      <Router history={history} routes={routes} />
-    </Provider>
-  );
-};
+const Main = () => (
+  <Provider store={store}>
+    <Router history={history} routes={routes} />
+  </Provider>
+);
 
-render(<Main store={store} />, document.getElementById('main'));
+render(<Main />, document.getElementById('main'));
 

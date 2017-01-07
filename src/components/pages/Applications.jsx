@@ -1,13 +1,9 @@
-import React, {createClass} from 'react';
+import React from 'react';
 
-const Applications = createClass({
-  render () {
-    return (
-      <div>
-        <h2>Заявки</h2>
-      </div>
-    );
-  }
-});
+const Applications = () => (
+  <div>
+    <h2>Заявки</h2>
+  </div>
+);
 
 export default Applications;

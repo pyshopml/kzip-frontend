@@ -1,31 +1,28 @@
-import {firebase} from '../utils/auth.js';
-import {push} from 'react-router-redux';
+import { push } from 'react-router-redux';
+import firebase from '../utils/auth';
 
-//------------------------ BEGIN ACTION CREATORS ---------------------
-const signUpStarted = () => {
-  return { type : 'SIGNUP_STARTED' };
-}
+// ------------------------ BEGIN ACTION CREATORS ---------------------
+const signUpStarted = () => (
+  { type: 'SIGNUP_STARTED' }
+);
 
-const signUpFailed = (err) => {
-  return { type : "SIGNUP_FAILED", err : err }
-}
-//------------------------ END ACTION CREATORS ---------------------
+const signUpFailed = err => (
+  { type: 'SIGNUP_FAILED', err }
+);
+// ------------------------ END ACTION CREATORS ---------------------
 
-const signUpFinished = () => {
-  return (dispatch) => {
-    dispatch( {type : 'SIGNUP_FINISHED'} );
-    dispatch( push('/applications') )
-  }
-}
+const signUpFinished = () => (dispatch) => {
+  dispatch({ type: 'SIGNUP_FINISHED' });
+  dispatch(push('/applications'));
+};
 
-const signUp = ({email, password}) => {
-  return (dispatch) => {
-    dispatch(signUpStarted());
 
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then( () => dispatch( signUpFinished() ) )
-      .catch( err => dispatch( signUpFailed(err) ) );
-  }
-}
+const signUp = ({ email, password }) => (dispatch) => {
+  dispatch(signUpStarted());
 
-export {signUp};
+  firebase.default.auth().createUserWithEmailAndPassword(email, password)
+    .then(() => dispatch(signUpFinished()))
+    .catch(err => dispatch(signUpFailed(err)));
+};
+
+export default signUp;

@@ -5,24 +5,24 @@
 *
 * Nick Luparev nikita.luparev@gmail.com
 ------------------------------------------------------------------------------- */
-import React, {createClass} from 'react';
+import React, { PropTypes } from 'react';
 import Sidebar from './sidebar';
-import Header from './Header.jsx';
+import Header from './Header';
 
-const App = createClass({
-  render () {
-    return (
-      <div className="main">
-        <Sidebar />
-        <section>
-          <Header />
-          <div className="main-area">
-            {this.props.children}
-          </div>
-        </section>
+const App = props => (
+  <div className="main">
+    <Sidebar />
+    <section>
+      <Header />
+      <div className="main-area">
+        {props.children}
       </div>
-    );  
-  }
-});
+    </section>
+  </div>
+);
+
+App.propTypes = {
+  children: PropTypes.node,
+};
 
 export default App;

@@ -1,70 +1,60 @@
-import React, {createClass, PropTypes} from 'react';
-import Navigation from './Navigation.jsx';
-import Authbar from './Authbar.jsx';
-import {connect} from 'react-redux';
-import {Link} from 'react-router';
-import {authChanged} from '../../actions/authActions.js';
-import {firebase} from '../../utils/auth.js';
-import UserPanel from  './UserPanel.jsx';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import Navigation from './Navigation';
+import Authbar from './Authbar';
+import authChanged from '../../actions/authActions';
+import firebase from '../../utils/auth';
+import UserPanel from './UserPanel';
 
-const Sidebar = createClass({
-  propTypes : {
-    user : PropTypes.object,
-    authUpdate : PropTypes.func.isRequired
-  },
-
-  getInitialState() {
-    return {
-      unsub : null  
-    }
-  },
-
-  componentDidMount () {
-    let {authUpdate} = this.props;
-
-    const unsub = firebase.auth().onAuthStateChanged((user) => {
+class Sidebar extends Component {
+  componentDidMount() {
+    const { authUpdate } = this.props;
+    this.unsub = firebase.default.auth().onAuthStateChanged((user) => {
       if (user) {
-        let {email, uid, displayName} = user;
-        authUpdate({email, uid, displayName});  
+        const { email, uid, displayName } = user;
+        authUpdate({ email, uid, displayName });
       } else {
-        authUpdate(null)
+        authUpdate(null);
       }
-      
     });
-    this.setState({ unsub });
-  },
+  }
 
-  componentWillUnmount () {
-    this.state.unsub();
-  },
+  componentWillUnmount() {
+    this.unsub();
+  }
 
-  render () {
-    let {user} = this.props;
+  render() {
+    const { user } = this.props;
 
     return (
       <aside>
-        <div className="logo-area"> 
+        <div className="logo-area">
           <h2>ЯГражданин</h2>
         </div>
 
         {user ? <UserPanel user={user} /> : <Authbar /> }
         <Navigation />
-        
-      </aside> 
-    );  
+
+      </aside>
+    );
   }
-});
+}
 
-const mapStateToProps = ({ auth }, ownProps) => {
-  return {
-    user : auth.user
-  };
+Sidebar.propTypes = {
+  user: PropTypes.shape({
+    email: PropTypes.string.isRequired,
+    uid: PropTypes.string.isRequired,
+    displayName: PropTypes.string,
+  }),
+  authUpdate: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    authUpdate : (user) => dispatch( authChanged(user) ) 
-  };
-};
+const mapStateToProps = ({ auth }) => (
+  { user: auth.user }
+);
+
+const mapDispatchToProps = dispatch => (
+  { authUpdate: user => dispatch(authChanged(user)) }
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

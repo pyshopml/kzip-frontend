@@ -1,13 +1,9 @@
-import React, {createClass} from 'react';
+import React from 'react';
 
-const Settings = createClass({
-  render () {
-    return (
-      <div>
-        <h2>Настройки</h2>
-      </div>
-    );
-  }
-});
+const Settings = () => (
+  <div>
+    <h2>Настройки</h2>
+  </div>
+);
 
 export default Settings;

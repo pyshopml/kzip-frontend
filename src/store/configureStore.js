@@ -7,19 +7,19 @@
 ------------------------------------------------------------------------------- */
 
 import { createStore, applyMiddleware } from 'redux';
-import rootReducer from '../reducers';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
-import {routerMiddleware} from 'react-router-redux';
-import {hashHistory} from 'react-router';
+import { routerMiddleware } from 'react-router-redux';
+import { hashHistory } from 'react-router';
+import rootReducer from '../reducers';
 
 const routing = routerMiddleware(hashHistory);
 
 export default function (initialState) {
   return createStore(
-    rootReducer, 
+    rootReducer,
     initialState,
-    applyMiddleware( reduxImmutableStateInvariant(), routing, thunk, logger() )
+    applyMiddleware(reduxImmutableStateInvariant(), routing, thunk, logger()),
   );
-};
+}

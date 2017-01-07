@@ -5,17 +5,17 @@
 *
 * Nick Luparev nikita.luparev@gmail.com
 ------------------------------------------------------------------------------- */
-import {combineReducers} from 'redux';
-import {routerReducer} from 'react-router-redux';
-import {reducer as formReducer} from 'redux-form';
-import signup from './signupReducer.js';
-import login from './loginReducer.js';
-import auth from './authReducer.js';
+import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
+import { reducer as formReducer } from 'redux-form';
+import signup from './signupReducer';
+import login from './loginReducer';
+import auth from './authReducer';
 
 export default combineReducers({
-  routing : routerReducer,
-  form : formReducer,
+  routing: routerReducer,
+  form: formReducer,
   signup,
   login,
-  auth
+  auth,
 });
