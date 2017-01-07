@@ -18,8 +18,13 @@
     transition: all .5s ease;
     overflow: hidden;
   
+    & > a.nav-link {
+      color : white;
+      line-height : 38px;
+    } // a.nav-link
+
     &.expanded {
-      height : 152px;
+      height : 148px;
       background: $user-panel-bg;
 
       .control {
