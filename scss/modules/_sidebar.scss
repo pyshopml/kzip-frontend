@@ -21,6 +21,12 @@
     & > a.nav-link {
       color : white;
       line-height : 38px;
+      
+      &:hover {
+        background: transparent;
+        text-decoration: underline;
+      }    
+  
     } // a.nav-link
 
     &.expanded {
