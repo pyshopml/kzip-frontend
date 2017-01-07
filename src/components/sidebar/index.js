@@ -22,8 +22,14 @@ const Sidebar = createClass({
   componentDidMount () {
     let {authUpdate} = this.props;
 
-    const unsub = firebase.auth().onAuthStateChanged( (user) => {
-      authUpdate(user);
+    const unsub = firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        let {email, uid, displayName} = user;
+        authUpdate({email, uid, displayName});  
+      } else {
+        authUpdate(null)
+      }
+      
     });
     this.setState({ unsub });
   },
