@@ -11,6 +11,7 @@ import {Route, IndexRoute} from 'react-router';
 import Applications from '../components/pages/Applications.jsx';
 import Login from '../components/auth/Login.jsx';
 import Signup from '../components/auth/Signup.jsx';
+import Settings from '../components/pages/Settings.jsx';
 
 const routes = (
   <Route name="app" path="/" component={App} >
@@ -18,6 +19,7 @@ const routes = (
     <Route path="/applications" component={Applications} />
     <Route path="/login" component={Login} />
     <Route path="/signup" component={Signup} />
+    <Route path="/settings" component={Settings} />
   </Route>
 )
 

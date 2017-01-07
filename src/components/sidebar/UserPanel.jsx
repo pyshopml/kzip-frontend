@@ -39,7 +39,7 @@ const UserPanel = createClass({
         <nav>
           <ul>
             <li>
-              <Link className="link nav-link dark">
+              <Link to="/settings" className="link nav-link dark">
                 <span className="glyphicon glyphicon-cog" aria-hidden="true" />
                 Настройки
               </Link>
