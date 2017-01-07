@@ -16,6 +16,18 @@ const loginFinisehd = () => {
 const loginFailed = (error) => {
   return { type : 'LOGIN_FAILED', error };
 }
+
+const logoutStarted = () => {
+  return {type : 'LOGOUT_STARTED'};
+}
+
+const logoutFinished = () => {
+  return {type : 'LOGOUT_FINISHED'};
+}
+
+const logoutFailer = () => {
+  return {type : 'LOGOUT_FAILED'};
+}
 //------------------------ END ACTION CREATORS ---------------------
 
 const login = ({email, password}) => {
@@ -28,4 +40,14 @@ const login = ({email, password}) => {
   }
 }
 
-export {login};
+const logout = () => {
+  return (dispatch) => {
+    dispatch( logoutStarted() );
+
+    firebase.auth().signOut()
+      .then( () => dispatch( logoutFinished() ) ) 
+      .catch( () => dispatch( logoutFailer() ) );  
+  }
+}
+
+export {login, logout};

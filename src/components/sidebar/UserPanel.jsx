@@ -1,20 +1,28 @@
 import React, {createClass, PropTypes} from 'react';
 import {Link} from 'react-router';
+import {connect} from 'react-redux';
+import {logout} from '../../actions/loginActions.js';
 
 const UserPanel = createClass({
   propTypes : {
-    user : PropTypes.object
+    user : PropTypes.object,
+    logout : PropTypes.func.isRequired
   },
 
   getInitialState() {
     return {
-      isExpanded : true
+      isExpanded : false
     };
   },
 
   expandPanel () {
     let {isExpanded} = this.state;
     this.setState({ isExpanded : !isExpanded  });
+  },
+
+  logoutHandler (e) {
+    e.preventDefault();
+    this.props.logout();
   },
 
   render () {
@@ -37,10 +45,10 @@ const UserPanel = createClass({
               </Link>
             </li> 
             <li>
-              <Link className="link nav-link dark">
+              <a href="#" onClick={this.logoutHandler} className="link nav-link dark">
                 <span className="glyphicon glyphicon-log-out" aria-hidden="true" />
                 Выход
-              </Link>
+              </a>
             </li>
           </ul>
         </nav>
@@ -50,4 +58,10 @@ const UserPanel = createClass({
   
 });
 
-export default UserPanel;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logout : () => dispatch( logout () )
+  }
+}
+
+export default connect(null, mapDispatchToProps)(UserPanel);

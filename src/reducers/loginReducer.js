@@ -21,6 +21,9 @@ export default (state=model, action) => {
     case "@@redux-form/CHANGE": 
       return Object.assign({}, state, { errorMsg : "" });
 
+    case 'LOGOUT_STARTED':
+      return state;
+
     default: 
       return state;
   }
