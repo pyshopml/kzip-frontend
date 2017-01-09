@@ -15,10 +15,10 @@ export default (state = model, action) => {
     case types.SIGNUP_FINISHED:
       return Object.assign({}, state, { inProgress: false, errorMsg: '' });
 
-    case '@@router/LOCATION_CHANGE':
+    case types.LOCATION_CHANGE:
       return Object.assign({}, state, { inProgress: false, errorMsg: '' });
 
-    case '@@redux-form/CHANGE':
+    case types.FORM_CHANGE:
       return Object.assign({}, state, { errorMsg: '' });
 
     case types.SIGNUP_FAILED:
