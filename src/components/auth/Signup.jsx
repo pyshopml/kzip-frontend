@@ -7,8 +7,8 @@ import signUp from '../../actions/signupActions';
 import AlertBox from './AlertBox';
 
 class Signup extends Component {
-  constructor() {
-    super();
+  constructor(props, context) {
+    super(props, context);
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }

@@ -7,8 +7,8 @@ const signUpStarted = () => (
   { type: types.SIGNUP_STARTED }
 );
 
-const signUpFailed = err => (
-  { type: types.SIGNUP_FAILED, err }
+const signUpFailed = error => (
+  { type: types.SIGNUP_FAILED, error }
 );
 // ------------------------ END ACTION CREATORS ---------------------
 

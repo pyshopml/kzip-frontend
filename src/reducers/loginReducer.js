@@ -18,10 +18,10 @@ export default (state = model, action) => {
     case types.LOGIN_FAILED:
       return Object.assign({}, state, { inProgress: false, errorMsg: error.message });
 
-    case types.LOCATION_CHANGE:
+    case '@@router/LOCATION_CHANGE':
       return Object.assign({}, state, { inProgress: false, errorMsg: '' });
 
-    case types.FORM_CHANGE:
+    case '@@redux-form/CHANGE':
       return Object.assign({}, state, { errorMsg: '' });
 
     case types.LOGOUT_STARTED:

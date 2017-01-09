@@ -6,7 +6,7 @@ const model = {
 };
 
 export default (state = model, action) => {
-  const { message } = action.err || '';
+  const { message } = action.error || '';
 
   switch (action.type) {
     case types.SIGNUP_STARTED:
@@ -15,11 +15,11 @@ export default (state = model, action) => {
     case types.SIGNUP_FINISHED:
       return Object.assign({}, state, { inProgress: false, errorMsg: '' });
 
-    case types.LOCATION_CHANGE:
+    case '@@router/LOCATION_CHANGE':
       return Object.assign({}, state, { inProgress: false, errorMsg: '' });
 
-    case types.FORM_CHANGE:
-      return Object.assign({}, state, { message: '' });
+    case '@@redux-form/CHANGE':
+      return Object.assign({}, state, { errorMsg: '' });
 
     case types.SIGNUP_FAILED:
       return Object.assign({}, state, { inProgress: false, errorMsg: message });
