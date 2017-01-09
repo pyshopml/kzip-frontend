@@ -1,3 +1,5 @@
+import * as types from '../actions/actionTypes';
+
 const model = {
   inProgress: false,
   errorMsg: '',
@@ -7,22 +9,22 @@ export default (state = model, action) => {
   const { error } = action;
 
   switch (action.type) {
-    case 'LOGIN_STARTED':
+    case types.LOGIN_STARTED:
       return Object.assign({}, state, { inProgress: true });
 
-    case 'LOGIN_FINISHED':
+    case types.LOGIN_FINISHED:
       return Object.assign({}, state, { inProgress: false, errorMsg: '' });
 
-    case 'LOGIN_FAILED':
+    case types.LOGIN_FAILED:
       return Object.assign({}, state, { inProgress: false, errorMsg: error.message });
 
-    case '@@router/LOCATION_CHANGE':
+    case types.LOCATION_CHANGE:
       return Object.assign({}, state, { inProgress: false, errorMsg: '' });
 
-    case '@@redux-form/CHANGE':
+    case types.FORM_CHANGE:
       return Object.assign({}, state, { errorMsg: '' });
 
-    case 'LOGOUT_STARTED':
+    case types.LOGOUT_STARTED:
       return state;
 
     default:

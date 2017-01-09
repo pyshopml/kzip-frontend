@@ -1,30 +1,31 @@
 import { push } from 'react-router-redux';
 import firebase from '../utils/auth';
+import * as types from './actionTypes';
 
 // ------------------------ BEGIN ACTION CREATORS ---------------------
 const loginStarted = () => (
-  { type: 'LOGIN_STARTED' }
+  { type: types.LOGIN_STARTED }
 );
 
 const loginFinisehd = () => (dispatch) => {
-  dispatch({ type: 'LOGIN_FINISHED' });
+  dispatch({ type: types.LOGIN_FINISHED });
   dispatch(push('/applications'));
 };
 
 const loginFailed = error => (
-  { type: 'LOGIN_FAILED', error }
+  { type: types.LOGIN_FAILED, error }
 );
 
 const logoutStarted = () => (
-  { type: 'LOGOUT_STARTED' }
+  { type: types.LOGOUT_STARTED }
 );
 
 const logoutFinished = () => (
-  { type: 'LOGOUT_FINISHED' }
+  { type: types.LOGOUT_FINISHED }
 );
 
 const logoutFailer = () => (
-  { type: 'LOGOUT_FAILED' }
+  { type: types.LOGOUT_FAILED }
 );
 // ------------------------ END ACTION CREATORS ---------------------
 
