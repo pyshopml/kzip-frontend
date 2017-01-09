@@ -6,7 +6,7 @@ const model = {
 };
 
 export default (state = model, action) => {
-  const { error } = action;
+  const { message } = action.error || '';
 
   switch (action.type) {
     case types.LOGIN_STARTED:
@@ -16,7 +16,7 @@ export default (state = model, action) => {
       return Object.assign({}, state, { inProgress: false, errorMsg: '' });
 
     case types.LOGIN_FAILED:
-      return Object.assign({}, state, { inProgress: false, errorMsg: error.message });
+      return Object.assign({}, state, { inProgress: false, errorMsg: message });
 
     case '@@router/LOCATION_CHANGE':
       return Object.assign({}, state, { inProgress: false, errorMsg: '' });

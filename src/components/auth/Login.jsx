@@ -40,9 +40,9 @@ Login.propTypes = {
   inProgress: PropTypes.bool,
 };
 
-const mapStateToProps = () => ({
-  errorMsg: login.errorMsg,
-  inProgress: login.inProgress,
+const mapStateToProps = state => ({
+  errorMsg: state.login.errorMsg,
+  inProgress: state.login.inProgress,
 });
 
 const mapDispatchToProps = dispatch => ({
