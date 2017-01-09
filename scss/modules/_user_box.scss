@@ -13,9 +13,13 @@
     right : 10px;
     top : 24px;
     transition: all .5s ease;
+    border : none;
+    background : transparent;
 
-    &:hover {
+    &:hover, &:focus {
       cursor : pointer;
+      border : none;
+      outline: 0;
     }
   } // .control
 

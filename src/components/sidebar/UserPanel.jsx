@@ -8,7 +8,7 @@ class UserPanel extends Component {
     super();
 
     this.state = {
-      isExpanded: true,
+      isExpanded: false,
     };
     this.expandPanel = this.expandPanel.bind(this);
     this.logoutHandler = this.logoutHandler.bind(this);
@@ -33,7 +33,7 @@ class UserPanel extends Component {
         <div className="user-panel">
           <span className="glyphicon glyphicon-user" />
           {user.email}
-          <button onClick={this.expandPanel} className="glyphicon glyphicon-menu-down control">&nbsp;</button>
+          <button onClick={this.expandPanel} className="glyphicon glyphicon-menu-down control" />
         </div>
         <nav>
           <ul>
