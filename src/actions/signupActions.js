@@ -1,18 +1,19 @@
 import { push } from 'react-router-redux';
 import firebase from '../utils/auth';
+import * as types from './actionTypes';
 
 // ------------------------ BEGIN ACTION CREATORS ---------------------
 const signUpStarted = () => (
-  { type: 'SIGNUP_STARTED' }
+  { type: types.SIGNUP_STARTED }
 );
 
 const signUpFailed = err => (
-  { type: 'SIGNUP_FAILED', err }
+  { type: types.SIGNUP_FAILED, err }
 );
 // ------------------------ END ACTION CREATORS ---------------------
 
 const signUpFinished = () => (dispatch) => {
-  dispatch({ type: 'SIGNUP_FINISHED' });
+  dispatch({ type: types.SIGNUP_FINISHED });
   dispatch(push('/applications'));
 };
 
