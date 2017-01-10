@@ -6,35 +6,31 @@ import authChanged from '../../actions/authActions';
 import firebase from '../../utils/auth';
 import UserPanel from './UserPanel';
 
+const Logo = () => 
+  <div className="logo-area">
+    <h2>ЯГражданин</h2>
+  </div>;
+
 class Sidebar extends Component {
-  componentDidMount() {
-    const { authUpdate } = this.props;
-    this.unsub = firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        const { email, uid, displayName } = user;
-        authUpdate({ email, uid, displayName });
-      } else {
-        authUpdate(null);
-      }
+
+  componentWillMount() {
+    this.unset = firebase.auth().onAuthStateChanged(() => {
+      this.forceUpdate();
     });
   }
 
   componentWillUnmount() {
-    this.unsub();
+    this.unset();
   }
 
   render() {
-    const { user } = this.props;
+    const user = firebase.auth().currentUser;
 
     return (
       <aside>
-        <div className="logo-area">
-          <h2>ЯГражданин</h2>
-        </div>
-
-        {user ? <UserPanel user={user} /> : <Authbar /> }
+        <Logo />
+        {user != null ? <UserPanel user={user} /> : <Authbar /> }
         <Navigation />
-
       </aside>
     );
   }
