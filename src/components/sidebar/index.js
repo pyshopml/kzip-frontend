@@ -9,7 +9,7 @@ import UserPanel from './UserPanel';
 class Sidebar extends Component {
   componentDidMount() {
     const { authUpdate } = this.props;
-    this.unsub = firebase.default.auth().onAuthStateChanged((user) => {
+    this.unsub = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         const { email, uid, displayName } = user;
         authUpdate({ email, uid, displayName });

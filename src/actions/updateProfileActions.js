@@ -22,7 +22,11 @@ export const updateUserProfile = ({ email, username }) =>
     const user = firebase.auth().currentUser;
 
     user.updateEmail(email)
-      .then(() => user.updateProfile({ displayName: username }).then(() => dispatch(updateProfileFinished())))
+      .then(() => { 
+        user.updateProfile({ displayName: username })
+          .then(() => dispatch(updateProfileFinished()))
+          .catch(err => dispatch(updateProfileFailed(err)))
+      })
       .catch(err => dispatch(updateProfileFailed(err)));
   };
 
