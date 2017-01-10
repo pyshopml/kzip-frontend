@@ -9,7 +9,7 @@ import React, { PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Spinner } from 'elemental';
 import { notEmpty, minLength, passwordEqual, withoutSpecialChars } from '../../utils/form_validations';
-import RenderField from './RenderField';
+import RenderField from '../common/RenderField';
 
 const SignupForm = ({ handleSubmit, inProgress }) => (
   <form onSubmit={handleSubmit}>

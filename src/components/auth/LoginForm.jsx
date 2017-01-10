@@ -9,10 +9,10 @@ import React, { PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Spinner } from 'elemental';
 import { notEmpty } from '../../utils/form_validations';
-import RenderField from './RenderField';
+import RenderField from '../common/RenderField';
 
 const LoginForm = ({ handleSubmit, inProgress }) => (
-  <form onSubmit={handleSubmit}>
+  <form onSubmit={ handleSubmit }> 
     <Field
       type="email"
       component={RenderField}

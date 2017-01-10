@@ -1,15 +1,43 @@
-import React from 'react';
+/* ------------------------------------------------------------------------------
+* AccountForm.jsx
+*
+* form for account part of settings page
+*
+* Nick Luparev nikita.luparev@gmail.com
+------------------------------------------------------------------------------- */
+import React, { PropTypes } from 'react';
+import { Field, reduxForm } from 'redux-form';
+import { Spinner } from 'elemental';
+import { notEmpty } from '../../../utils/form_validations';
+import RenderField from '../../common/RenderField';
 
-const AccountForm = () => (
-  <form>
-    <div className="form-group">
-      <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Email" />
-    </div>
-    <div className="form-group">
-      <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
-    </div>
-    <button type="submit" className="btn btn-primary">Submit</button>
+const AccountForm = ({ handleSubmit, inProgress }) => (
+  <form onSubmit={ handleSubmit }>
+    <Field
+      type="text"
+      component={RenderField}
+      name="name"
+      placeholder="Имя пользователя"
+      validate={notEmpty}
+    />
+
+    <Field
+      type="email"
+      component={RenderField}
+      name="email"
+      placeholder="Пароль"
+      validate={notEmpty}
+    />
+
+    <button type="submit" className="btn btn-primary">Сохранить</button>
   </form>
 );
 
-export default AccountForm;
+AccountForm.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  inProgress: PropTypes.bool,
+};
+
+export default reduxForm({
+  form: 'account-form',
+})(AccountForm);
