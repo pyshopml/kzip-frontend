@@ -10,13 +10,14 @@ import { Field, reduxForm } from 'redux-form';
 import { Spinner } from 'elemental';
 import { notEmpty } from '../../../utils/form_validations';
 import RenderField from '../../common/RenderField';
+import { connect } from 'react-redux';
 
-const AccountForm = ({ handleSubmit, inProgress }) => (
+let AccountForm = ({ handleSubmit, inProgress }) => (
   <form onSubmit={ handleSubmit }>
     <Field
       type="text"
       component={RenderField}
-      name="name"
+      name="username"
       placeholder="Имя пользователя"
       validate={notEmpty}
     />
@@ -36,8 +37,15 @@ const AccountForm = ({ handleSubmit, inProgress }) => (
 AccountForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   inProgress: PropTypes.bool,
+  user: PropTypes.shape(),
 };
 
-export default reduxForm({
-  form: 'account-form',
+AccountForm = reduxForm({
+  form: 'account-form'
 })(AccountForm);
+
+const mapStateToProps = ({ auth }) => ({
+  initialValues: auth.user
+})
+
+export default connect(mapStateToProps)(AccountForm);

@@ -19,6 +19,7 @@ const RenderField = ({ input, label, type, meta: { touched, error } }) => (
 RenderField.propTypes = {
   input: PropTypes.func,
   label: PropTypes.string,
+  value: PropTypes.string,
   type: PropTypes.string,
   meta: PropTypes.shape({
     touched: PropTypes.bool,

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AccountForm from './AccountForm';
+import { connect } from 'react-redux';
 
 class Account extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class Account extends Component {
   render() {
     return (
       <section className="auth-form">
-        <AccountForm onSubmit={this.handleSubmit} />
+        <AccountForm onSubmit={ this.handleSubmit } />
       </section>);
   }
 }
