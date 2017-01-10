@@ -29,7 +29,7 @@ class Settings extends Component {
     const currentTab = this.getCurrentTab();
 
     return (
-      <div>
+      <div className='settings-page'>
         <ul className="nav nav-tabs">
           <li role="presentation" className={ currentTab === 'account' ? 'active' : '' }>
             <Link to="/settings/account">Аккаунт</Link>
@@ -41,7 +41,9 @@ class Settings extends Component {
             <Link to="/settings/notifications">Уведомления</Link>
           </li>
         </ul>
-        {this.props.children}
+        <div className="settings-form">
+          { this.props.children }
+        </div>
       </div>
     );
   }
