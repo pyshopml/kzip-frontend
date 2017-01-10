@@ -32,7 +32,7 @@ class UserPanel extends Component {
       <div className={isExpanded ? 'auth-bar expanded' : 'auth-bar'}>
         <div className="user-panel">
           <span className="glyphicon glyphicon-user" />
-          {user.email}
+          <Link to="profile" className="link">{user.email}</Link>
           <button onClick={this.expandPanel} className="glyphicon glyphicon-menu-down control" />
         </div>
         <nav>

@@ -49,6 +49,14 @@ body {
   visibility : hidden;
 }
 
+.link {
+  color : white;
+  &:hover, &:visited {
+    color : white;
+    text-decoration: underline;
+  }
+}
+
 .nav-link {
   display: block;
   padding : 12px 12px;
