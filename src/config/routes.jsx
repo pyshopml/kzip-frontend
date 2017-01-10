@@ -24,6 +24,7 @@ const routes = (
     <Route path="/login" component={Login} />
     <Route path="/signup" component={Signup} />
     <Route path="/settings" component={Settings}>
+      <IndexRoute component={AccountForm} />
       <Route path="account" component={AccountForm} />
       <Route path="password" component={PasswordForm} />
       <Route path="notifications" component={NotificationsForm} />
