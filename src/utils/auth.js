@@ -44,4 +44,4 @@ firebase.initializeApp(config);
 //   firebase.auth().onAuthStateChanged(cb);
 // };
 
-export { firebase as default };
+export default firebase;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AccountForm from './AccountForm';
 import { connect } from 'react-redux';
+import { updateUserProfile } from '../../../actions/updateProfileActions.js';
 
 class Account extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class Account extends Component {
   }
 
   handleSubmit(vals) {
-    console.log(vals);
+    this.props.updateProfile(vals);
   }
 
   render() {
@@ -21,4 +22,8 @@ class Account extends Component {
   }
 }
 
-export default Account;
+const mapDispatchToProps = (dispatch) => ({
+  updateProfile: data => dispatch(updateUserProfile(data))
+});
+
+export default connect(null, mapDispatchToProps)(Account);

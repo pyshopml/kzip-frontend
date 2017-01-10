@@ -17,11 +17,10 @@ const signUpFinished = () => (dispatch) => {
   dispatch(push('/applications'));
 };
 
-
 const signUp = ({ email, password }) => (dispatch) => {
   dispatch(signUpStarted());
 
-  firebase.default.auth().createUserWithEmailAndPassword(email, password)
+  firebase.auth().createUserWithEmailAndPassword(email, password)
     .then(() => dispatch(signUpFinished()))
     .catch(err => dispatch(signUpFailed(err)));
 };

@@ -17,7 +17,7 @@ let AccountForm = ({ handleSubmit, inProgress }) => (
     <Field
       type="text"
       component={RenderField}
-      name="username"
+      name="displayName"
       placeholder="Имя пользователя"
       validate={notEmpty}
     />
