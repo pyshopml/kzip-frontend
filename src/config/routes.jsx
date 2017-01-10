@@ -6,7 +6,7 @@
 * Nick Luparev nikita.luparev@gmail.com
 ------------------------------------------------------------------------------- */
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import { Route, IndexRoute, IndexRedirect } from 'react-router';
 import App from '../components/App';
 import Applications from '../components/pages/Applications';
 import Login from '../components/auth/Login';
@@ -24,7 +24,7 @@ const routes = (
     <Route path="/login" component={Login} />
     <Route path="/signup" component={Signup} />
     <Route path="/settings" component={Settings}>
-      <IndexRoute component={Account} />
+      <IndexRedirect to="account" />
       <Route path="account" component={Account} />
       <Route path="password" component={PasswordForm} />
       <Route path="notifications" component={NotificationsForm} />
