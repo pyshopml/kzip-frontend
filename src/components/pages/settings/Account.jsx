@@ -3,6 +3,7 @@ import AccountForm from './AccountForm';
 import { connect } from 'react-redux';
 import { updateUserProfile } from '../../../actions/updateProfileActions.js';
 import AlertBox from '../../common/AlertBox';
+import SuccessBox from '../../common/SuccessBox';
 import { isEmpty } from 'ramda';
 
 class Account extends Component {
@@ -17,11 +18,12 @@ class Account extends Component {
   }
 
   render() {
-    const { inProgress, errorMsg } = this.props;
+    const { inProgress, errorMsg, successMsg } = this.props;
 
     return (
       <section className="auth-form">
-        { isEmpty(errorMsg) ? '' : <AlertBox error={errorMsg} /> }
+        { isEmpty(errorMsg) ? '' : <AlertBox error={ errorMsg } /> }
+        <SuccessBox msg={ successMsg } />
         <AccountForm onSubmit={ this.handleSubmit } inProgress={ inProgress } />
       </section>);
   }
@@ -31,11 +33,13 @@ Account.propTypes = {
   updateProfile: PropTypes.func.isRequired,
   inProgress: PropTypes.bool.isRequired,
   errorMsg: PropTypes.string.isRequired,
+  successMsg: PropTypes.string.isRequired
 };
 
 const mapStateToProps = ({ updateProfile }) => ({
   inProgress: updateProfile.inProgress,
   errorMsg: updateProfile.errorMsg,
+  successMsg: updateProfile.successMsg
 });
 
 const mapDispatchToProps = (dispatch) => ({

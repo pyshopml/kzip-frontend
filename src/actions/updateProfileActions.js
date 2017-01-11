@@ -10,9 +10,13 @@ const updateProfileFailed = error => (
   { type: types.UPDATE_PROFILE_FAILED, error }
 );
 
-const updateProfileFinished = () => ({ 
-  type: types.UPDATE_PROFILE_FINISHED 
-});
+const updateProfileFinished = () => 
+  (dispatch) => {
+    dispatch({ type: types.UPDATE_PROFILE_FINISHED, msg: 'Данные успешно обновлены' });
+    setTimeout(() => { 
+      dispatch({ type: types.UPDATE_MESSAGE_HIDE })
+    }, 2000);
+  }
 
 // ------------------------ END ACTION CREATORS ---------------------
 

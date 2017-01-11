@@ -2,7 +2,8 @@ import * as types from '../actions/actionTypes';
 
 const model = {
   inProgress: false,
-  errorMsg: ''
+  errorMsg: '',
+  successMsg: '',
 }
 
 export default (state=model, action) => {
@@ -12,7 +13,13 @@ export default (state=model, action) => {
       return Object.assign({}, state, { inProgress: true });
 
     case types.UPDATE_PROFILE_FINISHED: 
-      return Object.assign({}, state, { inProgress: false, errorMsg: '' });
+      return Object.assign(
+              {}, 
+              state, 
+              { inProgress: false, errorMsg: '', successMsg: action.msg });
+
+    case types.UPDATE_MESSAGE_HIDE:
+      return Object.assign({}, state, { successMsg: '' });
 
     case types.UPDATE_PROFILE_FAILED: 
       return Object.assign({}, state, { inProgress: false, errorMsg: action.error });

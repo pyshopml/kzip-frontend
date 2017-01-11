@@ -1,7 +1,15 @@
 .settings-page {
   .settings-form {
     margin : 0 auto;
-    margin-top: 40px;
+    margin-top: 60px;
+    position: relative;
+
+    .alert {
+      position: absolute;
+      top: -56px;
+      line-height: 12px;
+      width: 405px;
+    }
     
     .form-group {
       position: relative;  
