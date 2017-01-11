@@ -18,12 +18,13 @@ class AccountForm extends Component {
     this.state = {
       displayName: '',
       email: '',
-      nameError: 'Не может быть пустым',
+      nameError: '',
       emailError: ''
     }
 
     this.updateDisplayName = this.updateDisplayName.bind(this);
     this.updateEmail = this.updateEmail.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -41,13 +42,24 @@ class AccountForm extends Component {
     else this.setState({ nameError: '' });
   }
 
+  emailValidation(val) {
+    if (isEmpty(val)) this.setState({ emailError: 'Не может быть пустым' });
+    else this.setState({ emailError: '' });
+  }
+
   updateDisplayName (str) {
     this.nameValidation(str);
     this.setState({ displayName: str });
   }
 
   updateEmail (str)  {
+    this.emailValidation(str);
     this.setState({ email: str }); 
+  }
+
+  handleSubmit() {
+    const { email, displayName } = this.state;
+    this.props.onSubmit({ email, displayName });
   }
 
   render() {
@@ -63,10 +75,16 @@ class AccountForm extends Component {
         <input onChange={ e => this.updateEmail(e.target.value) } type="email" value={email} className="form-control" id="password" placeholder="Пароль" />
         <span className="error-msg">{ emailError }</span>
       </div>
-      <button type="submit" className="btn btn-primary">Сохранить</button>
+      <button disabled={ !isEmpty(nameError) || !isEmpty(emailError) } onClick={this.handleSubmit} className="btn btn-primary">
+        Сохранить
+      </button>
     </form>
     );
   }
 }
+
+AccountForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired
+};
 
 export default AccountForm;

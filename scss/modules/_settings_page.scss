@@ -2,5 +2,10 @@
   .settings-form {
     margin : 0 auto;
     margin-top: 40px;
+    
+    .form-group {
+      position: relative;  
+    }
+
   } // settings-form
 } // .settings-page

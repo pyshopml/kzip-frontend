@@ -11,7 +11,8 @@ class Account extends Component {
   }
 
   handleSubmit(vals) {
-    this.props.updateProfile(vals);
+    console.log(vals);
+    // this.props.updateProfile(vals);
   }
 
   render() {
