@@ -9,6 +9,7 @@ import React, { PropTypes, Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Spinner } from 'elemental';
 import firebase from '../../../utils/auth';
+import { isEmpty } from 'ramda';
 
 class AccountForm extends Component {
   constructor(props) {
@@ -16,7 +17,9 @@ class AccountForm extends Component {
     
     this.state = {
       displayName: '',
-      email: ''
+      email: '',
+      nameError: 'Не может быть пустым',
+      emailError: ''
     }
 
     this.updateDisplayName = this.updateDisplayName.bind(this);
@@ -33,7 +36,13 @@ class AccountForm extends Component {
     }
   }
 
+  nameValidation(val) {
+    if (isEmpty(val)) this.setState({ nameError: 'Не может быть пустым' });
+    else this.setState({ nameError: '' });
+  }
+
   updateDisplayName (str) {
+    this.nameValidation(str);
     this.setState({ displayName: str });
   }
 
@@ -42,15 +51,17 @@ class AccountForm extends Component {
   }
 
   render() {
-    const { displayName, email } = this.state;
+    const { displayName, email, nameError, emailError } = this.state;
 
     return (
       <form>
       <div className="form-group">
         <input onChange={ e => this.updateDisplayName(e.target.value) } type="text" className="form-control" value={displayName} placeholder="Имя пользователя" />
+        <span className="error-msg">{ nameError }</span>
       </div>
       <div className="form-group">
         <input onChange={ e => this.updateEmail(e.target.value) } type="email" value={email} className="form-control" id="password" placeholder="Пароль" />
+        <span className="error-msg">{ emailError }</span>
       </div>
       <button type="submit" className="btn btn-primary">Сохранить</button>
     </form>
