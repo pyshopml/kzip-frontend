@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Navigation from './Navigation';
 import Authbar from './Authbar';
-import authChanged from '../../actions/authActions';
 import firebase from '../../utils/auth';
 import UserPanel from './UserPanel';
 
@@ -36,21 +35,4 @@ class Sidebar extends Component {
   }
 }
 
-Sidebar.propTypes = {
-  user: PropTypes.shape({
-    email: PropTypes.string.isRequired,
-    uid: PropTypes.string.isRequired,
-    displayName: PropTypes.string,
-  }),
-  authUpdate: PropTypes.func.isRequired,
-};
-
-const mapStateToProps = ({ auth }) => (
-  { user: auth.user }
-);
-
-const mapDispatchToProps = dispatch => (
-  { authUpdate: user => dispatch(authChanged(user)) }
-);
-
-export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
+export default Sidebar;

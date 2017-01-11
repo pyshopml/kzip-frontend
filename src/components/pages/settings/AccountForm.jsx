@@ -5,47 +5,57 @@
 *
 * Nick Luparev nikita.luparev@gmail.com
 ------------------------------------------------------------------------------- */
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Spinner } from 'elemental';
-import { notEmpty } from '../../../utils/form_validations';
-import RenderField from '../../common/RenderField';
-import { connect } from 'react-redux';
+import firebase from '../../../utils/auth';
 
-let AccountForm = ({ handleSubmit, inProgress }) => (
-  <form onSubmit={ handleSubmit }>
-    <Field
-      type="text"
-      component={RenderField}
-      name="displayName"
-      placeholder="Имя пользователя"
-      validate={notEmpty}
-    />
+class AccountForm extends Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      displayName: '',
+      email: ''
+    }
 
-    <Field
-      type="email"
-      component={RenderField}
-      name="email"
-      placeholder="Пароль"
-      validate={notEmpty}
-    />
+    this.updateDisplayName = this.updateDisplayName.bind(this);
+    this.updateEmail = this.updateEmail.bind(this);
+  }
 
-    <button type="submit" className="btn btn-primary">Сохранить</button>
-  </form>
-);
+  componentDidMount() {
+    const user = firebase.auth().currentUser;
+    if (user) {
+      this.setState({
+        displayName: user.displayName,
+        email: user.email,
+      })  
+    }
+  }
 
-AccountForm.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
-  inProgress: PropTypes.bool,
-  user: PropTypes.shape(),
-};
+  updateDisplayName (str) {
+    this.setState({ displayName: str });
+  }
 
-AccountForm = reduxForm({
-  form: 'account-form'
-})(AccountForm);
+  updateEmail (str)  {
+    this.setState({ email: str }); 
+  }
 
-const mapStateToProps = ({ auth }) => ({
-  initialValues: auth.user
-})
+  render() {
+    const { displayName, email } = this.state;
 
-export default connect(mapStateToProps)(AccountForm);
+    return (
+      <form>
+      <div className="form-group">
+        <input onChange={ e => this.updateDisplayName(e.target.value) } type="text" className="form-control" value={displayName} placeholder="Имя пользователя" />
+      </div>
+      <div className="form-group">
+        <input onChange={ e => this.updateEmail(e.target.value) } type="email" value={email} className="form-control" id="password" placeholder="Пароль" />
+      </div>
+      <button type="submit" className="btn btn-primary">Сохранить</button>
+    </form>
+    );
+  }
+}
+
+export default AccountForm;

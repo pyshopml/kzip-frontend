@@ -1,18 +1,12 @@
 import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
+import firebase from '../../utils/auth';
 
-const Profile = ({ user }) => (
-  <div>
-    <h2>{ user.email }</h2>
-  </div>
-);
+const Profile = () => {
+  const user = firebase.auth().currentUser;
 
-Profile.propTypes = {
-  user: PropTypes.shape().isRequired,
+  return (<div>
+      <h2>{ user ? user.email : '' }</h2>
+    </div>);
 };
 
-const mapStateToProps = ({ auth }) => ({
-  user: auth.user,
-});
-
-export default connect(mapStateToProps)(Profile);
+export default Profile;
