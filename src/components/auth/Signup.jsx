@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { isEmpty } from 'ramda';
 import SignupForm from './SignupForm';
 import signUp from '../../actions/signupActions';
-import AlertBox from './AlertBox';
+import AlertBox from '../common/AlertBox';
 
 class Signup extends Component {
   constructor(props, context) {

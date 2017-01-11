@@ -64,6 +64,7 @@ class AccountForm extends Component {
 
   render() {
     const { displayName, email, nameError, emailError } = this.state;
+    const { inProgress } = this.props;
 
     return (
       <form>
@@ -76,7 +77,7 @@ class AccountForm extends Component {
         <span className="error-msg">{ emailError }</span>
       </div>
       <button disabled={ !isEmpty(nameError) || !isEmpty(emailError) } onClick={this.handleSubmit} className="btn btn-primary">
-        Сохранить
+        { inProgress ? <Spinner type="inverted" /> : 'Сохранить' }
       </button>
     </form>
     );

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { isEmpty } from 'ramda';
 import LoginForm from './LoginForm';
 import { login } from '../../actions/loginActions';
-import AlertBox from './AlertBox';
+import AlertBox from '../common/AlertBox';
 
 class Login extends Component {
   constructor(props, context) {

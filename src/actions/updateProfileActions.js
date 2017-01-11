@@ -9,13 +9,14 @@ const updateProfileStarted = () => (
 const updateProfileFailed = error => (
   { type: types.UPDATE_PROFILE_FAILED, error }
 );
+
+const updateProfileFinished = () => ({ 
+  type: types.UPDATE_PROFILE_FINISHED 
+});
+
 // ------------------------ END ACTION CREATORS ---------------------
 
-const updateProfileFinished = () => 
-  dispatch => 
-    dispatch({ type: types.UPDATE_PROFILE_FINISHED });
-
-export const updateUserProfile = ({ email, username }) => 
+export const updateUserProfile = ({ email, displayName }) => 
   (dispatch) => {
     dispatch(updateProfileStarted());
 
@@ -23,7 +24,7 @@ export const updateUserProfile = ({ email, username }) =>
 
     user.updateEmail(email)
       .then(() => { 
-        user.updateProfile({ displayName: username })
+        user.updateProfile({ displayName })
           .then(() => dispatch(updateProfileFinished()))
           .catch(err => dispatch(updateProfileFailed(err)))
       })
