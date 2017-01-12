@@ -68,18 +68,18 @@ class AccountForm extends Component {
 
     return (
       <form>
-      <div className="form-group">
-        <input onChange={ e => this.updateDisplayName(e.target.value) } type="text" className="form-control" value={displayName} placeholder="Имя пользователя" />
-        <span className="error-msg">{ nameError }</span>
-      </div>
-      <div className="form-group">
-        <input onChange={ e => this.updateEmail(e.target.value) } type="email" value={email} className="form-control" id="password" placeholder="Пароль" />
-        <span className="error-msg">{ emailError }</span>
-      </div>
-      <button disabled={ !isEmpty(nameError) || !isEmpty(emailError) } onClick={this.handleSubmit} className="btn btn-primary">
-        { inProgress ? <Spinner type="inverted" /> : 'Сохранить' }
-      </button>
-    </form>
+        <div className="form-group">
+          <input onChange={ e => this.updateDisplayName(e.target.value) } type="text" className="form-control" value={displayName} placeholder="Имя пользователя" />
+          <span className="error-msg">{ nameError }</span>
+        </div>
+        <div className="form-group">
+          <input onChange={ e => this.updateEmail(e.target.value) } type="email" value={email} className="form-control" id="password" placeholder="Пароль" />
+          <span className="error-msg">{ emailError }</span>
+        </div>
+        <button disabled={ !isEmpty(nameError) || !isEmpty(emailError) } onClick={this.handleSubmit} className="btn btn-primary">
+          { inProgress ? <Spinner type="inverted" /> : 'Сохранить' }
+        </button>
+      </form>
     );
   }
 }
