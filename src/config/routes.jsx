@@ -14,7 +14,7 @@ import Signup from '../components/auth/Signup';
 import Settings from '../components/pages/Settings';
 import Profile from '../components/pages/Profile';
 import Account from '../components/pages/settings/Account';
-import PasswordForm from '../components/pages/settings/PasswordForm';
+import PasswordPage from '../components/pages/settings/PasswordPage';
 import NotificationsForm from '../components/pages/settings/NotificationsForm';
 
 const routes = (
@@ -26,7 +26,7 @@ const routes = (
     <Route path="/settings" component={Settings}>
       <IndexRedirect to="account" />
       <Route path="account" component={Account} />
-      <Route path="password" component={PasswordForm} />
+      <Route path="password" component={PasswordPage} />
       <Route path="notifications" component={NotificationsForm} />
     </Route>
     <Route path="/profile" component={Profile} />
