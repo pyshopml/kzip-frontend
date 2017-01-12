@@ -11,16 +11,19 @@ import { Router, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { Provider } from 'react-redux';
 import './components/App';
-import routes from './config/routes';
+import createRoutes from './config/routes';
 import configStore from './store/configureStore';
 
 
 const store = configStore();
 const history = syncHistoryWithStore(hashHistory, store);
+const routes = createRoutes(store);
 
 const Main = () => (
   <Provider store={store}>
-    <Router history={history} routes={routes} />
+    <Router history={history}>
+      {routes}
+    </Router>
   </Provider>
 );
 

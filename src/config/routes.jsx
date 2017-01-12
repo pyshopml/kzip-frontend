@@ -13,14 +13,24 @@ import Login from '../components/auth/Login';
 import Signup from '../components/auth/Signup';
 import Settings from '../components/pages/Settings';
 
-const routes = (
-  <Route name="app" path="/" component={App} >
-    <IndexRoute component={Applications} />
-    <Route path="/applications" component={Applications} />
-    <Route path="/login" component={Login} />
-    <Route path="/signup" component={Signup} />
-    <Route path="/settings" component={Settings} />
-  </Route>
-);
+export default (store) => {
+  const MatchWhenAuthed = (nextState, replace) => {
+    const { login: { authed } } = store.getState();
+    if (!authed) {
+      replace({
+        pathname: '/login',
+        state: { nextPathname: nextState.location.pathname },
+      });
+    }
+  };
 
-module.exports = routes;
+  return (
+    <Route name="app" path="/" component={App} >
+      <IndexRoute component={Applications} />
+      <Route path="/applications" component={Applications} />
+      <Route path="/login" component={Login} />
+      <Route path="/signup" component={Signup} />
+      <Route path="/settings" component={Settings} onEnter={MatchWhenAuthed} />
+    </Route>
+  );
+};
