@@ -8,24 +8,37 @@
 import React, { Component, PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Spinner } from 'elemental';
-import { notEmpty, passwordEqual } from '../../../utils/form_validations';
+import { notEmpty } from '../../../utils/form_validations';
 import firebase from '../../../utils/auth';
 import RenderField from '../../common/RenderField';
+
+const passwordEqual = (value, { newPassword, newPasswordConfirmation }) => (
+  newPassword === newPasswordConfirmation ? undefined : 'Пароли должны совпадать'
+);
 
 const PasswordForm = ({ handleSubmit, inProgress }) => (
   <form onSubmit={ handleSubmit }> 
     <Field
       type="password"
-      component={RenderField}
-      name="password"
-      placeholder="E-mail"
+      component={ RenderField }
+      name="oldPassword"
+      label="Старый пароль"
       validate={ notEmpty }
     />
+
     <Field
       type="password"
-      component={RenderField}
-      name="passwordConfirmation"
-      placeholder="Пароль"
+      component={ RenderField }
+      name="newPassword"
+      label="Новый пароль"
+      validate={ notEmpty }
+    />
+
+    <Field
+      type="password"
+      component={ RenderField }
+      name="newPasswordConfirmation"
+      label="Новый пароль ещё раз"
       validate={ [ notEmpty, passwordEqual ] }
     />
     <button type="submit" className="btn btn-primary">

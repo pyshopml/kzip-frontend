@@ -20,20 +20,32 @@ const passwordChangeFinished = () =>
 
 // ------------------------ END ACTION CREATORS ---------------------
 
-export const changePassword = ({ password }) => 
+export const changePassword = ({ oldPassword, newPassword }) => 
   (dispatch) => {
     dispatch(passwordChangeStarted());
 
     const user = firebase.auth().currentUser;
+    const credential = firebase.auth.EmailAuthProvider.credential(
+      user.email,
+      oldPassword
+    );
 
-    user.updatePassword(password).then(
-      () => {
-        // Update successful.
-        dispatch(passwordChangeFinished());
+    user.reauthenticate(credential)
+      .then(() => {
+        // User re-authenticated.
+
+        user.updatePassword(newPassword)
+          .then( () => {
+            // Update successful.
+            dispatch(passwordChangeFinished());
+          }, 
+          ({ message }) => {
+            // An error happened.
+            dispatch(passwordChangeFailed(message));
+          });
       }, 
       ({ message }) => {
         // An error happened.
-        // console.log(err);
         dispatch(passwordChangeFailed(message));
       });
   };
