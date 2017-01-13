@@ -4,7 +4,7 @@
 
   .auth-form {
     width : 60%;
-    padding-top : 130px;
+    padding-top : 90px;
     margin : 0 auto;
     position: relative;
 
@@ -14,9 +14,9 @@
       margin-bottom : 16px;
     }
 
-    .alert-danger {
+    .alert {
       position: absolute;
-      top: 30px;
+      top: -16px;
       width: 405px;
       font-size : 0.9em;
     }

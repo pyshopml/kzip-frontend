@@ -1,12 +1,11 @@
 .settings-page {
   .settings-form {
     margin : 0 auto;
-    margin-top: 60px;
     position: relative;
 
     .alert {
       position: absolute;
-      top: -56px;
+      top: 5px !important;
       line-height: 12px;
       width: 405px;
     }

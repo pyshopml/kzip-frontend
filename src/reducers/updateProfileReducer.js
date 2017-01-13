@@ -2,7 +2,7 @@ import * as types from '../actions/actionTypes';
 
 const model = {
   inProgress: false,
-  errorMsg: 'hello',
+  errorMsg: '',
   successMsg: '',
 }
 
