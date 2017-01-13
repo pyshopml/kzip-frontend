@@ -29,6 +29,12 @@ export default (state=model, action) => {
     case types.UPDATE_MESSAGE_HIDE:
       return Object.assign({}, state, { successMsg: '' });
 
+    case types.LOCATION_CHANGE: 
+      return Object.assign({}, state, { inProgress: false, successMsg: '', errorMsg: '' });
+
+    case types.FORM_CHANGE:
+      return Object.assign({}, state, { inProgress: false, successMsg: '', errorMsg: '' });
+
     case types.PASSWORD_UPDATE_FAILED:
       return Object.assign({}, state, { inProgress: false, errorMsg: action.error });
 
