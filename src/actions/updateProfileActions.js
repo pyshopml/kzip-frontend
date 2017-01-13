@@ -29,9 +29,16 @@ export const updateUserProfile = ({ email, displayName }) =>
     user.updateEmail(email)
       .then(() => { 
         user.updateProfile({ displayName })
-          .then(() => dispatch(updateProfileFinished()))
-          .catch(err => dispatch(updateProfileFailed(err)))
-      })
-      .catch(err => dispatch(updateProfileFailed(err)));
+          .then(
+            () => { 
+              dispatch(updateProfileFinished())
+            },
+            ({ message }) => {
+              dispatch(updateProfileFailed(message))
+            });
+      }, 
+      ({ message }) => {
+        dispatch(updateProfileFailed(message))
+      });
   };
 
