@@ -8,7 +8,10 @@
 import React, { Component, PropTypes } from 'react';
 import PasswordForm from './PasswordForm';
 import { connect } from 'react-redux';
+import AlertBox from '../../common/AlertBox';
+import SuccessBox from '../../common/SuccessBox';
 import { changePassword } from '../../../actions/passwordChangeActions.js';
+import { isEmpty } from 'ramda';
 
 class PasswordPage extends Component {
   constructor(props) {
@@ -23,9 +26,13 @@ class PasswordPage extends Component {
   }
 
   render () {
+    const { inProgress, errorMsg, successMsg } = this.props;
+
     return (
       <section className="auth-form">
-        <PasswordForm onSubmit={ this.handleSubmit } inProgress={ false } />
+        { isEmpty(errorMsg) ? '' : <AlertBox error={ errorMsg } /> }
+        <SuccessBox msg={ successMsg } />
+        <PasswordForm onSubmit={ this.handleSubmit } inProgress={ inProgress } />
       </section>
     );
   }
