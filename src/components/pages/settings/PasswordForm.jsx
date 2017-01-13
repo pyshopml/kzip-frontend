@@ -1,51 +1,43 @@
+/* ------------------------------------------------------------------------------
+* PasswordForm.jsx
+*
+* form for changing user's password
+*
+* Nick Luparev nikita.luparev@gmail.com
+------------------------------------------------------------------------------- */
 import React, { Component, PropTypes } from 'react';
+import { Field, reduxForm } from 'redux-form';
+import { notEmpty, passwordEqual } from '../../../utils/form_validations';
 import firebase from '../../../utils/auth';
+import RenderField from '../../common/RenderField';
 
-class PasswordForm extends Component {
-  constructor(props) {
-    super(props);
-    
-    this.state = {
-      password: '',
-      password_confirmation: '',
-    };
+const PasswordForm = ({ handleSubmit, inProgress }) => (
+  <form onSubmit={ handleSubmit }> 
+    <Field
+      type="password"
+      component={RenderField}
+      name="password"
+      placeholder="E-mail"
+      validate={ notEmpty }
+    />
+    <Field
+      type="password"
+      component={RenderField}
+      name="passwordConfirmation"
+      placeholder="Пароль"
+      validate={ [ notEmpty, passwordEqual ] }
+    />
+    <button type="submit" className="btn btn-primary">
+      { inProgress ? <Spinner type="inverted" /> : 'Войти' }
+    </button>
+  </form>
+);
 
-    this.updatePassword = this.updatePassword.bind(this);
-    this.updatePasswordConfirmation = this.updatePasswordConfirmation.bind(this);
-  }
+PasswordForm.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  inProgress: PropTypes.bool,
+};
 
-  updatePassword(str) {
-    this.setState({ password: str  });
-  }
-
-  updatePasswordConfirmation() {
-    this.setState({ password_confirmation: str  });
-  }
-
-  render() {
-    const { password, password_confirmation } = this.state;
-
-    return (
-      <form>
-        <div className="form-group">
-          <input type="password" onChange={this.updatePassword} className="form-control"  placeholder="Пароль" value={password} />
-          <span className="error-msg"></span>
-        </div>
-        <div className="form-group">
-          <input 
-            type="password" 
-            onChange={this.updatePasswordConfirmation} 
-            className="form-control" 
-            placeholder="Пароль ещё раз" 
-            value={password_confirmation} />
-          <span className="error-msg"></span>
-        </div>
-        <button className="btn btn-primary">
-          Обновить
-        </button>
-      </form>
-    );
-  }
-}
-
-export default PasswordForm;
+export default reduxForm({
+  form: 'password-form',
+})(PasswordForm);

@@ -11,6 +11,7 @@ import { reducer as formReducer } from 'redux-form';
 import signup from './signupReducer';
 import login from './loginReducer';
 import updateProfile from './updateProfileReducer';
+import password from './passwordUpdateReducer';
 
 export default combineReducers({
   routing: routerReducer,
@@ -18,4 +19,5 @@ export default combineReducers({
   signup,
   login,
   updateProfile,
+  password,
 });
