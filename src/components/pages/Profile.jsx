@@ -5,7 +5,7 @@ const Profile = () => {
   const user = firebase.auth().currentUser;
 
   return (<div>
-      <h2>{ user ? user.email : '' }</h2>
+      <h2>{ user ? (user.displayName || user.email) : '' }</h2>
     </div>);
 };
 
