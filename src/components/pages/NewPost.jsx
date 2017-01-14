@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
+import NewPostForm from './NewPostForm';
 
-const NewPost = () => {
-  return (
-    <div>
-      <h3>New Post Page</h3>
-    </div>
-  )
+class NewPost extends Component {
+  constructor(props) {
+    super(props);
+    
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(vals) {
+    console.log(vals);
+  }
+
+  render() {
+    return (
+      <div className="auth-form">
+        <NewPostForm onSubmit={this.handleSubmit} inProgress={false} />
+      </div>
+    );
+  }
 };
 
 export default NewPost;
