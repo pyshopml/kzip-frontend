@@ -30,7 +30,7 @@ class PasswordPage extends Component {
 
     return (
       <section className="auth-form">
-        { isEmpty(errorMsg) ? '' : <AlertBox error={ errorMsg } /> }
+        <AlertBox error={ errorMsg } />
         <SuccessBox msg={ successMsg } />
         <PasswordForm onSubmit={ this.handleSubmit } inProgress={ inProgress } />
       </section>

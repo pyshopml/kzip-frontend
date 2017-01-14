@@ -22,7 +22,7 @@ class Login extends Component {
 
     return (
       <section className="auth-form">
-        { isEmpty(errorMsg) ? '' : <AlertBox error={errorMsg} /> }
+        <AlertBox error={errorMsg} />
         <h2>Вход</h2>
         <LoginForm onSubmit={this.handleSubmit} inProgress={inProgress} />
         <div>

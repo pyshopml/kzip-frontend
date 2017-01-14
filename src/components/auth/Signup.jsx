@@ -22,7 +22,7 @@ class Signup extends Component {
 
     return (
       <section className="auth-form">
-        { isEmpty(errorMsg) ? '' : <AlertBox error={errorMsg} /> }
+        <AlertBox error={errorMsg} />
         <h2>Регистрация</h2>
         <SignupForm onSubmit={this.handleSubmit} inProgress={inProgress} />
         <div>
