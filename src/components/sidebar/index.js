@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Navigation from './Navigation';
 import Authbar from './Authbar';
-import firebase from '../../utils/auth';
+import { firebase } from '../../utils/auth';
 import UserPanel from './UserPanel';
 
 const Logo = () => 
