@@ -12,6 +12,7 @@ import Applications from '../components/pages/Applications';
 import Login from '../components/auth/Login';
 import Signup from '../components/auth/Signup';
 import Settings from '../components/pages/Settings';
+import NewPost from '../components/pages/NewPost';
 import Profile from '../components/pages/Profile';
 import Account from '../components/pages/settings/Account';
 import PasswordPage from '../components/pages/settings/PasswordPage';
@@ -23,6 +24,7 @@ const routes = (
     <Route path="/applications" component={Applications} />
     <Route path="/login" component={Login} />
     <Route path="/signup" component={Signup} />
+    <Route path="/newpost" component={NewPost} />
     <Route path="/settings" component={Settings}>
       <IndexRedirect to="account" />
       <Route path="account" component={Account} />

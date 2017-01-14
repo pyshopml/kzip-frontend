@@ -39,4 +39,23 @@
 
     } // .expanded
   } // .auth-bar
+
+  .navigation {
+    width : 100%;
+
+    button {
+      margin-top: 10px;
+      margin-left: 60px;
+  
+      a {
+        color: white;
+
+        &:focus, &:hover {
+          color: white;
+          text-decoration: none;
+        }
+      } // 
+
+    } // button
+  } // .navigation
 } // .main aside 
