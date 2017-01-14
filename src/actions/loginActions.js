@@ -9,7 +9,7 @@ const loginStarted = () => (
 
 const loginFinisehd = () => (dispatch) => {
   dispatch({ type: types.LOGIN_FINISHED });
-  dispatch(push('/applications'));
+  dispatch(push('/posts'));
 };
 
 const loginFailed = error => (

@@ -11,7 +11,6 @@ class NewPost extends Component {
   }
 
   handleSubmit(vals) {
-    // console.log(vals);
     this.props.createPost(vals);
   }
 

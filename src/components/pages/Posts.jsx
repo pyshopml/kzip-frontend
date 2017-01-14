@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Applications = () => (
+const Posts = () => (
   <div>
     <h2>Заявки</h2>
   </div>
 );
 
-export default Applications;
+export default Posts;

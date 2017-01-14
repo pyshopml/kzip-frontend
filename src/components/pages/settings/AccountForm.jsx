@@ -8,7 +8,7 @@
 import React, { PropTypes, Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Spinner } from 'elemental';
-import firebase from '../../../utils/auth';
+import { firebase } from '../../../utils/auth';
 import { isEmpty } from 'ramda';
 
 class AccountForm extends Component {

@@ -8,7 +8,7 @@
 import React from 'react';
 import { Route, IndexRoute, IndexRedirect } from 'react-router';
 import App from '../components/App';
-import Applications from '../components/pages/Applications';
+import Posts from '../components/pages/Posts';
 import Login from '../components/auth/Login';
 import Signup from '../components/auth/Signup';
 import Settings from '../components/pages/Settings';
@@ -20,12 +20,12 @@ import NotificationsForm from '../components/pages/settings/NotificationsForm';
 
 const routes = (
   <Route name="app" path="/" component={App} >
-    <IndexRoute component={Applications} />
-    <Route path="/applications" component={Applications} />
-    <Route path="/login" component={Login} />
-    <Route path="/signup" component={Signup} />
-    <Route path="/newpost" component={NewPost} />
-    <Route path="/settings" component={Settings}>
+    <IndexRoute component={Posts} />
+    <Route path="posts" component={Posts} />
+    <Route path="login" component={Login} />
+    <Route path="signup" component={Signup} />
+    <Route path="newpost" component={NewPost} />
+    <Route path="settings" component={Settings}>
       <IndexRedirect to="account" />
       <Route path="account" component={Account} />
       <Route path="password" component={PasswordPage} />
