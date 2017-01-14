@@ -5,6 +5,7 @@
 *
 * Nick Luparev nikita.luparev@gmail.com
 ------------------------------------------------------------------------------- */
+import { push } from 'react-router-redux';
 import { database } from '../utils/auth';
 import * as types from './actionTypes';
 
@@ -14,9 +15,10 @@ const postCreateStarted = () => ({
   type: 'POST_CREATE_STARTED'
 });
 
-const postCreateFinished = () => ({
-  type: 'POST_CREATE_FINISHED'
-});
+const postCreateFinished = () => (dispatch) => {
+  dispatch({ type: 'POST_CREATE_FINISHED' });
+  dispatch(push('/posts'));
+};
 
 const postCreateFailed = (error) => ({
   type: 'POST_CREATE_FAILED', 
@@ -30,4 +32,5 @@ export const createPost = (data) =>
 
     const newPost = database.ref(reference).push();
     newPost.set(data);
+    dispatch(postCreateFinished());
   };
