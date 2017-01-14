@@ -27,7 +27,7 @@ const routes = (
     <Route path="/newpost" component={NewPost} />
     <Route path="/profile" component={Profile} />
     <Route path="/settings" component={Settings}>
-      <IndexRedirect to="/account" />
+      <IndexRedirect to="/settings/account" />
       <Route path="account" component={Account} />
       <Route path="password" component={PasswordPage} />
       <Route path="notifications" component={NotificationsForm} />
