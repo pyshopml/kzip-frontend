@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import NewPostForm from './NewPostForm';
+import { createPost } from '../../actions/postsActions.js';
+import { connect } from 'react-redux';
 
 class NewPost extends Component {
   constructor(props) {
@@ -9,7 +11,8 @@ class NewPost extends Component {
   }
 
   handleSubmit(vals) {
-    console.log(vals);
+    // console.log(vals);
+    this.props.createPost(vals);
   }
 
   render() {
@@ -21,4 +24,8 @@ class NewPost extends Component {
   }
 };
 
-export default NewPost;
+const mapDispatchToProps = (dispatch) => ({
+  createPost: (data) => dispatch(createPost(data))
+});
+
+export default connect(null, mapDispatchToProps)(NewPost);

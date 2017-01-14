@@ -23,7 +23,7 @@ const NewPostForm = ({ handleSubmit, inProgress }) => (
     <Field
       type="text"
       component={RenderField}
-      name="password"
+      name="description"
       label="Описание"
       validate={notEmpty}
     />
