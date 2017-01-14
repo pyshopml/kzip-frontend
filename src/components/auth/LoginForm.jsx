@@ -17,14 +17,14 @@ const LoginForm = ({ handleSubmit, inProgress }) => (
       type="email"
       component={RenderField}
       name="email"
-      placeholder="E-mail"
+      label="E-mail"
       validate={notEmpty}
     />
     <Field
       type="password"
       component={RenderField}
       name="password"
-      placeholder="Пароль"
+      label="Пароль"
       validate={notEmpty}
     />
     <button type="submit" className="btn btn-primary">
