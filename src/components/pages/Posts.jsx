@@ -10,13 +10,15 @@ class Posts extends Component {
     }
   }
 
-  allPosts() {
-    const ref = database.ref('/posts');
-    const result = [];
-    ref.on('value', (vals) => {
-      console.log(vals);
-    });
-    
+  componentWillMount() {
+    database.ref('/posts').once('value')
+      .then(snapshot => {
+        snapshot.forEach(post => {
+          this.setState({ 
+            posts: [ ...this.state.posts, post.val() ]
+          });
+        })
+      });
   }
 
   render() {
