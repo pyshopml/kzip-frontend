@@ -10,17 +10,17 @@ const passwordChangeFailed = error => (
   { type: types.PASSWORD_UPDATE_FAILED, error }
 );
 
-const passwordChangeFinished = () => 
+const passwordChangeFinished = () =>
   (dispatch) => {
     dispatch({ type: types.PASSWORD_UPDATE_FINISHED, msg: 'Данные успешно обновлены' });
-    setTimeout(() => { 
-      dispatch({ type: types.UPDATE_MESSAGE_HIDE })
+    setTimeout(() => {
+      dispatch({ type: types.UPDATE_MESSAGE_HIDE });
     }, 2000);
-  }
+  };
 
 // ------------------------ END ACTION CREATORS ---------------------
 
-export const changePassword = ({ oldPassword, newPassword }) => 
+export const changePassword = ({ oldPassword, newPassword }) =>
   (dispatch) => {
     dispatch(passwordChangeStarted());
 

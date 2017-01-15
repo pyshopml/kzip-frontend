@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import AccountForm from './AccountForm';
 import { connect } from 'react-redux';
-import { updateUserProfile } from '../../../actions/updateProfileActions.js';
+import updateUserProfile from '../../../actions/updateProfileActions.js';
 import AlertBox from '../../common/AlertBox';
 import SuccessBox from '../../common/SuccessBox';
 import { isEmpty } from 'ramda';

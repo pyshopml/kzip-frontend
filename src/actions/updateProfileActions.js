@@ -10,35 +10,34 @@ const updateProfileFailed = error => (
   { type: types.UPDATE_PROFILE_FAILED, error }
 );
 
-const updateProfileFinished = () => 
+const updateProfileFinished = () =>
   (dispatch) => {
     dispatch({ type: types.UPDATE_PROFILE_FINISHED, msg: 'Данные успешно обновлены' });
-    setTimeout(() => { 
-      dispatch({ type: types.UPDATE_MESSAGE_HIDE })
+    setTimeout(() => {
+      dispatch({ type: types.UPDATE_MESSAGE_HIDE });
     }, 2000);
-  }
+  };
 
 // ------------------------ END ACTION CREATORS ---------------------
 
-export const updateUserProfile = ({ email, displayName }) => 
+export default ({ email, displayName }) =>
   (dispatch) => {
     dispatch(updateProfileStarted());
 
     const user = firebase.auth().currentUser;
 
     user.updateEmail(email)
-      .then(() => { 
+      .then(() => {
         user.updateProfile({ displayName })
           .then(
-            () => { 
-              dispatch(updateProfileFinished())
+            () => {
+              dispatch(updateProfileFinished());
             },
             ({ message }) => {
-              dispatch(updateProfileFailed(message))
+              dispatch(updateProfileFailed(message));
             });
-      }, 
+      },
       ({ message }) => {
-        dispatch(updateProfileFailed(message))
+        dispatch(updateProfileFailed(message));
       });
   };
-

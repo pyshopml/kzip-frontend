@@ -1,11 +1,10 @@
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react';
 import Navigation from './Navigation';
 import Authbar from './Authbar';
 import { firebase } from '../../utils/auth';
 import UserPanel from './UserPanel';
 
-const Logo = () => 
+const Logo = () =>
   <div className="logo-area">
     <h2>ЯГражданин</h2>
   </div>;
