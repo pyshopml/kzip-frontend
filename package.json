@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack",
     "start": "gulp watch",
-    "sass": "gulp sass"
+    "sass": "gulp sass",
+    "lint": "./node_modules/.bin/eslint ./src"
   },
   "license": "MIT",
   "dependencies": {
