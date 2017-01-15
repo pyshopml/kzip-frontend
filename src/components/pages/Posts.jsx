@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import { database } from '../../utils/auth';
 
+const Post = ({ item }) => 
+  <div className="post">
+    <h3>{ item.title }</h3>
+    <p>{ item.description }</p>
+  </div>;
+
 class Posts extends Component {
   constructor(props) {
     super(props);
     
     this.state = {
       posts: []
-    }
+    };
+
   }
 
   componentWillMount() {
@@ -21,13 +28,19 @@ class Posts extends Component {
       });
   }
 
-  render() {
-    const { posts } = this.state;
-    console.log(posts);
+  post(id, item) {
+    return <Post key={ id } item={ item } />
+  }
 
+  posts() {
+    const { posts } = this.state;
+    return posts.map((post, id) => this.post(id, post))
+  }
+
+  render() {
     return (
-      <div>
-        <h2>Заявки</h2>
+      <div className="posts-list">
+        { this.posts() }
       </div>
     );
   }
