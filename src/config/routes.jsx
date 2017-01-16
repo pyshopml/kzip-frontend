@@ -36,7 +36,7 @@ const routes = (
     <Route path="/signup" component={Signup} />
     <Route path="/newpost" component={NewPost} onEnter={ isLoggedIn } />
     <Route path="/profile" component={Profile} />
-    <Route path="/settings" component={Settings}>
+    <Route path="/settings" component={Settings} onEnter={ isLoggedIn }>
       <IndexRedirect to="/settings/account" />
       <Route path="account" component={Account} />
       <Route path="password" component={PasswordPage} />
