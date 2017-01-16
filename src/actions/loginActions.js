@@ -20,7 +20,7 @@ const logoutStarted = () => (
   { type: types.LOGOUT_STARTED }
 );
 
-const logoutFinished = () => 
+const logoutFinished = () =>
   (dispatch) => {
     dispatch({ type: types.LOGOUT_FINISHED });
     dispatch(push('/posts'));

@@ -41,7 +41,7 @@ const PasswordForm = ({ handleSubmit, inProgress }) => (
       validate={ [ notEmpty, passwordEqual ] }
     />
     <button type="submit" className="btn btn-primary">
-      { inProgress ? <Spinner type="inverted" /> : 'Войти' }
+      { inProgress ? <Spinner type="inverted" /> : 'Сохранить' }
     </button>
   </form>
 );

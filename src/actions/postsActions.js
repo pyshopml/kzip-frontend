@@ -12,22 +12,24 @@ import * as types from './actionTypes';
 const reference = '/posts';
 
 const postCreateStarted = () => ({
-  type: 'POST_CREATE_STARTED'
+  type: types.POST_CREATE_STARTED,
 });
 
-const postCreateFinished = () => (dispatch) => {
-  dispatch({ type: 'POST_CREATE_FINISHED' });
-  dispatch(push('/posts'));
-};
-
-const postCreateFailed = (error) => ({
-  type: 'POST_CREATE_FAILED', 
-  error
-});
-
-export const createPost = (data) => 
+const postCreateFinished = () =>
   (dispatch) => {
-    console.log(data);
+    dispatch({ type: types.POST_CREATE_FINISHED });
+    dispatch(push('/posts'));
+  };
+
+/*
+const postCreateFailed = error => ({
+  type: types.POST_CREATE_FAILED,
+  error,
+});
+*/
+
+export default data =>
+  (dispatch) => {
     dispatch(postCreateStarted());
 
     const newPost = database.ref(reference).push();

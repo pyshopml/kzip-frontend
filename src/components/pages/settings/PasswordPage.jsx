@@ -10,7 +10,7 @@ import PasswordForm from './PasswordForm';
 import { connect } from 'react-redux';
 import AlertBox from '../../common/AlertBox';
 import SuccessBox from '../../common/SuccessBox';
-import { changePassword } from '../../../actions/passwordChangeActions.js';
+import changePassword from '../../../actions/passwordChangeActions.js';
 import { isEmpty } from 'ramda';
 
 class PasswordPage extends Component {
