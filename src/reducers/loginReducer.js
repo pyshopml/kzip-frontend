@@ -1,4 +1,11 @@
-import * as types from '../actions/actionTypes';
+/* ------------------------------------------------------------------------------
+* loginReducer.js
+*
+* logic for handling login related state changes
+*
+* Nick Luparev nikita.luparev@gmail.com
+------------------------------------------------------------------------------- */
+import * as types from '../constants/actionTypes';
 
 const model = {
   inProgress: false,

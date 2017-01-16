@@ -5,7 +5,7 @@
 *
 * Nick Luparev nikita.luparev@gmail.com
 ------------------------------------------------------------------------------- */
-import * as types from '../actions/actionTypes';
+import * as types from '../constants/actionTypes';
 
 const model = {
   inProgress: false,

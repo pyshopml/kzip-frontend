@@ -7,7 +7,7 @@
 ------------------------------------------------------------------------------- */
 import { push } from 'react-router-redux';
 import { database } from '../utils/auth';
-import * as types from './actionTypes';
+import * as types from '../constants/actionTypes';
 
 const reference = '/posts';
 

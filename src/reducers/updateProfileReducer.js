@@ -1,4 +1,11 @@
-import * as types from '../actions/actionTypes';
+/* ------------------------------------------------------------------------------
+* updateProfileReducer.js
+*
+* logic for handling related to update profile state changes
+*
+* Nick Luparev nikita.luparev@gmail.com
+------------------------------------------------------------------------------- */
+import * as types from '../constants/actionTypes';
 
 const model = {
   inProgress: false,

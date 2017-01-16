@@ -1,4 +1,11 @@
-import * as types from '../actions/actionTypes';
+/* ------------------------------------------------------------------------------
+* signupReducer.js
+*
+* logic for handling singup related state changes
+*
+* Nick Luparev nikita.luparev@gmail.com
+------------------------------------------------------------------------------- */
+import * as types from '../constants/actionTypes';
 
 const model = {
   inProgress: false,
