@@ -17,6 +17,16 @@ import Profile from '../components/pages/Profile';
 import Account from '../components/pages/settings/Account';
 import PasswordPage from '../components/pages/settings/PasswordPage';
 import NotificationsForm from '../components/pages/settings/NotificationsForm';
+import { firebase } from '../utils/auth';
+
+const isLoggedIn = (nextState, replace, callback) => {
+  const user = firebase.auth().currentUser;
+  if (user) { callback(); }
+  else {
+    replace('/login');
+    callback();
+  }
+};
 
 const routes = (
   <Route name="app" path="/" component={App} >
@@ -24,7 +34,7 @@ const routes = (
     <Route path="/posts" component={Posts} />
     <Route path="/login" component={Login} />
     <Route path="/signup" component={Signup} />
-    <Route path="/newpost" component={NewPost} />
+    <Route path="/newpost" component={NewPost} onEnter={ isLoggedIn } />
     <Route path="/profile" component={Profile} />
     <Route path="/settings" component={Settings}>
       <IndexRedirect to="/settings/account" />
