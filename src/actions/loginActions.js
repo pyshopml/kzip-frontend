@@ -20,9 +20,11 @@ const logoutStarted = () => (
   { type: types.LOGOUT_STARTED }
 );
 
-const logoutFinished = () => (
-  { type: types.LOGOUT_FINISHED }
-);
+const logoutFinished = () => 
+  (dispatch) => {
+    dispatch({ type: types.LOGOUT_FINISHED });
+    dispatch(push('/posts'));
+  };
 
 const logoutFailer = () => (
   { type: types.LOGOUT_FAILED }
