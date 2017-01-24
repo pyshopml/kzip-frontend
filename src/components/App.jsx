@@ -10,11 +10,11 @@ import Sidebar from './sidebar';
 import Header from './Header';
 
 const App = props => (
-  <div className="main">
+  <div className="container">
     <Sidebar />
-    <section>
+    <section className="main-area">
       <Header />
-      <div className="main-area">
+      <div>
         {props.children}
       </div>
     </section>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Header = () => (
-  <header>
+  <header className="header">
     <input type="text" placeholder="Найти интересующую Вас информацию" />
   </header>
 );

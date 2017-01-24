@@ -19,36 +19,6 @@ body {
   background: $main-bg;
 }
 
-.main {
-  width : 960px;
-  margin : 0 auto;
-  position: relative;
-
-  & > aside {
-    width : 250px;
-    height : 99.9vh;
-    background: $sidebar-bg;
-    display : inline-block;
-  } // aside
-
-  & > section {
-    display : inline-block;
-    width : 710px;
-    float : right;
-    background: $main-area-bg;
-  
-    & > header {
-      height: 65px;
-      background: $header-bg;
-    }
-
-  } // section
-} // .main
-
-.hidden {
-  visibility : hidden;
-}
-
 .link {
   color : white;
   &:hover, &:visited {
@@ -56,31 +26,6 @@ body {
     text-decoration: underline;
   }
 }
-
-.nav-link {
-  display: block;
-  padding : 12px 12px;
-  color : $main-text-color;
-  font-family: 'PT Sans', sans-serif;
-  font-weight : bold;
-
-  &.dark {
-    color : white;
-    &:hover {
-      background: $user-panel-bg-hover;  
-    }
-  } // &.dark
-
-  span {
-    margin-right : 8px;
-  }
-
-  &:hover {
-    background: #a7b3cb;
-    color : #fff;
-    text-decoration: none;
-  }
-} // .nav-link
 
 .hidden {
   visibility: hidden;

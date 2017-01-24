@@ -26,7 +26,7 @@ class Sidebar extends Component {
     const user = firebase.auth().currentUser;
 
     return (
-      <aside>
+      <aside className="sidebar">
         <Logo />
         {user != null ? <UserPanel user={user} /> : <Authbar /> }
         <Navigation />
