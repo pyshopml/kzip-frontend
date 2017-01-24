@@ -17,20 +17,36 @@ import Account from '../components/pages/settings/Account';
 import PasswordPage from '../components/pages/settings/PasswordPage';
 import NotificationsForm from '../components/pages/settings/NotificationsForm';
 
-const routes = (
-  <Route name="app" path="/" component={App} >
-    <IndexRoute component={Applications} />
-    <Route path="/applications" component={Applications} />
-    <Route path="/login" component={Login} />
-    <Route path="/signup" component={Signup} />
-    <Route path="/settings" component={Settings}>
-      <IndexRedirect to="account" />
-      <Route path="account" component={Account} />
-      <Route path="password" component={PasswordPage} />
-      <Route path="notifications" component={NotificationsForm} />
-    </Route>
-    <Route path="/profile" component={Profile} />
-  </Route>
-);
+export default (store) => {
 
-module.exports = routes;
+  const MatchWhenAuthed = (nextState, replace) => {
+    const { login: { authed } } = store.getState();
+    if (!authed) {
+      replace({
+        pathname: '/login',
+        state: { nextPathname: nextState.location.pathname },
+      });
+    }
+  };
+
+  return (
+    <Route name="app" path="/" component={App} >
+      <IndexRoute component={Applications} />
+      <Route path="/applications" component={Applications} />
+      <Route path="/login" component={Login} />
+      <Route path="/signup" component={Signup} />
+      <Route path="/settings" component={Settings} onEnter={MatchWhenAuthed}>
+        <IndexRedirect to="account" />
+        <Route path="account" component={Account} />
+        <Route path="password" component={PasswordPage} />
+        <Route path="notifications" component={NotificationsForm} />
+      </Route>
+      <Route path="/profile" component={Profile} />
+    </Route>
+  );
+  
+};
+
+
+
+

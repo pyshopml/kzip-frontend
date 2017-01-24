@@ -1,5 +1,5 @@
 import firebase from '../utils/auth';
-import * as types from './actionTypes';
+import * as types from '../constants/actionTypes';
 
 // ------------------------ BEGIN ACTION CREATORS ---------------------
 const passwordChangeStarted = () => (

@@ -1,11 +1,12 @@
-import * as types from '../actions/actionTypes';
+import * as types from '../constants/actionTypes';
 
-const model = {
+const initialState = {
   inProgress: false,
   errorMsg: '',
+  authed: false,
 };
 
-export default (state = model, action) => {
+export default (state = initialState, action) => {
   const { message } = action.error || '';
 
   switch (action.type) {
@@ -13,10 +14,10 @@ export default (state = model, action) => {
       return Object.assign({}, state, { inProgress: true });
 
     case types.LOGIN_FINISHED:
-      return Object.assign({}, state, { inProgress: false, errorMsg: '' });
+      return Object.assign({}, state, { inProgress: false, errorMsg: '', authed: true });
 
     case types.LOGIN_FAILED:
-      return Object.assign({}, state, { inProgress: false, errorMsg: message });
+      return Object.assign({}, state, { inProgress: false, errorMsg: message, authed: false });
 
     case types.LOCATION_CHANGE:
       return Object.assign({}, state, { inProgress: false, errorMsg: '' });
