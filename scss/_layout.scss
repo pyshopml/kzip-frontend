@@ -69,5 +69,26 @@
       } // input[type="text"]
 
     } // .header
+
+    .settings-page {
+      padding : 20px;
+      
+      .settings-form {
+        margin : 0 auto;
+        position: relative;
+
+        .alert {
+          position: absolute;
+          top: 5px !important;
+          line-height: 12px;
+          width: 405px;
+        }
+        
+        .form-group {
+          position: relative;  
+        }
+
+      } // settings-form
+    } // .settings-page
   } // .main-area
 } // .container
