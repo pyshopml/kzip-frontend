@@ -6,7 +6,7 @@ import firebase from '../../utils/auth';
 import UserPanel from './UserPanel';
 
 const Logo = () => 
-  <div className="logo-area">
+  <div className="logo">
     <h2>ЯГражданин</h2>
   </div>;
 
