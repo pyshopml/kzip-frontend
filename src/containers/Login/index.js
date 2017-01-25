@@ -3,8 +3,8 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { isEmpty } from 'ramda';
 import LoginForm from './LoginForm';
-import { login } from '../../actions/loginActions';
-import AlertBox from '../common/AlertBox';
+import { login } from './actions';
+import AlertBox from '../../components/AlertBox';
 
 class Login extends Component {
   constructor(props, context) {
