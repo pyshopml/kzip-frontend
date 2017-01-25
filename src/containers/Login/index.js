@@ -1,3 +1,10 @@
+/* ------------------------------------------------------------------------------
+* Login
+*
+* component responsible for login/logout user
+*
+* Nick Luparev nikita.luparev@gmail.com
+------------------------------------------------------------------------------- */
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';

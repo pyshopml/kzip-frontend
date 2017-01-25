@@ -1,6 +1,6 @@
 import { push } from 'react-router-redux';
 import firebase from '../utils/auth';
-import * as types from '../constants/actionTypes';
+import * as types from './constants';
 
 // ------------------------ BEGIN ACTION CREATORS ---------------------
 const loginStarted = () => (

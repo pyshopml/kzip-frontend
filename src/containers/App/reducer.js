@@ -7,13 +7,9 @@
 *
 * Nick Luparev nikita.luparev@gmail.com
 ------------------------------------------------------------------------------- */
-import signup from './signupReducer';
-import login from './loginReducer';
-import updateProfile from './updateProfileReducer';
-import password from './passwordUpdateReducer';
-
-// already updated
-import account from '../AccountSettings/reducer';
+import accountReducer from '../AccountSettings/reducer';
+import loginReducer from  '../Login/reducer';
+import passwordReducer from '../PasswordSettings/reducer';
 
 const appReducer = (state = {}, action) => {
   switch(action.type) {
@@ -25,6 +21,7 @@ const appReducer = (state = {}, action) => {
 
 export default (state = {}, action) => ({
   app: appReducer(state.app, action),
-  account,
-  home: HomeReducer(state.home, action)
+  account: accountReducer(state.account, action),
+  login: loginReducer(state.login, action),
+  password: passwordReducer(state.password, action),
 });
