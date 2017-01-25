@@ -8,21 +8,14 @@
 import React from 'react';
 import { Route, IndexRoute, IndexRedirect } from 'react-router';
 import App from './containers/App';
-
-/*
-
-CHANGE PATH
-
-import Applications from './components/pages/Applications';
-import Login from './components/auth/Login';
-import Signup from './components/auth/Signup';
-import Settings from './components/pages/Settings';
-import Profile from './components/pages/Profile';
-import Account from './components/pages/settings/Account';
-import PasswordPage from './components/pages/settings/PasswordPage';
-import NotificationsForm from './components/pages/settings/NotificationsForm';
-
-*/
+import Posts from './containers/PostsPage';
+import Login from './containers/Login';
+import Signup from './containers/Signup';
+import Settings from './containers/SettingsPage';
+import Profile from './containers/ProfilePage';
+import AccountSettings from './containers/AccountSettings';
+import PasswordSettings from './containers/PasswordSettings';
+import Notifications from './containers/NotificationsSettings';
 
 export default (store) => {
 
@@ -38,15 +31,15 @@ export default (store) => {
 
   return (
     <Route name="app" path="/" component={App} >
-      <IndexRoute component={Applications} />
-      <Route path="/applications" component={Applications} />
+      <IndexRoute component={Posts} />
+      <Route path="/posts" component={Posts} />
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup} />
       <Route path="/settings" component={Settings} onEnter={MatchWhenAuthed}>
         <IndexRedirect to="account" />
-        <Route path="account" component={Account} />
-        <Route path="password" component={PasswordPage} />
-        <Route path="notifications" component={NotificationsForm} />
+        <Route path="account" component={AccountSettings} />
+        <Route path="password" component={PasswordSettings} />
+        <Route path="notifications" component={Notifications} />
       </Route>
       <Route path="/profile" component={Profile} />
     </Route>
