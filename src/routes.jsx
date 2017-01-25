@@ -7,15 +7,22 @@
 ------------------------------------------------------------------------------- */
 import React from 'react';
 import { Route, IndexRoute, IndexRedirect } from 'react-router';
-import App from '../components/App';
-import Applications from '../components/pages/Applications';
-import Login from '../components/auth/Login';
-import Signup from '../components/auth/Signup';
-import Settings from '../components/pages/Settings';
-import Profile from '../components/pages/Profile';
-import Account from '../components/pages/settings/Account';
-import PasswordPage from '../components/pages/settings/PasswordPage';
-import NotificationsForm from '../components/pages/settings/NotificationsForm';
+import App from './containers/App';
+
+/*
+
+CHANGE PATH
+
+import Applications from './components/pages/Applications';
+import Login from './components/auth/Login';
+import Signup from './components/auth/Signup';
+import Settings from './components/pages/Settings';
+import Profile from './components/pages/Profile';
+import Account from './components/pages/settings/Account';
+import PasswordPage from './components/pages/settings/PasswordPage';
+import NotificationsForm from './components/pages/settings/NotificationsForm';
+
+*/
 
 export default (store) => {
 
@@ -44,9 +51,4 @@ export default (store) => {
       <Route path="/profile" component={Profile} />
     </Route>
   );
-  
 };
-
-
-
-

@@ -10,10 +10,8 @@ import { render } from 'react-dom';
 import { Router, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { Provider } from 'react-redux';
-import './components/App';
-import createRoutes from './config/routes';
-import configStore from './store/configureStore';
-
+import createRoutes from './routes';
+import configStore from './store';
 
 const store = configStore();
 const history = syncHistoryWithStore(hashHistory, store);

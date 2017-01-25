@@ -1,14 +1,9 @@
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react';
+import firebase from '../../utils/auth';
 import Navigation from './Navigation';
 import Authbar from './Authbar';
-import firebase from '../../utils/auth';
 import UserPanel from './UserPanel';
-
-const Logo = () => 
-  <div className="logo">
-    <h2>ЯГражданин</h2>
-  </div>;
+import Logo from './Logo';
 
 class Sidebar extends Component {
 
@@ -26,7 +21,7 @@ class Sidebar extends Component {
     const user = firebase.auth().currentUser;
 
     return (
-      <aside className="sidebar">
+      <aside className="layout-sidebar">
         <Logo />
         {user != null ? <UserPanel user={user} /> : <Authbar /> }
         <Navigation />

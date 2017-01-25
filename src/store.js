@@ -1,5 +1,5 @@
 /* ------------------------------------------------------------------------------
-* configureStore.js
+* store.js
 *
 * store's configuration file
 *
@@ -12,7 +12,7 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import { routerMiddleware } from 'react-router-redux';
 import { hashHistory } from 'react-router';
-import rootReducer from '../reducers';
+import rootReducer from './reducers';
 
 const routing = routerMiddleware(hashHistory);
 
