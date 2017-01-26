@@ -8,6 +8,7 @@ class UserPanel extends Component {
     this.state = {
       isExpanded: false,
     };
+
     this.expandPanel = this.expandPanel.bind(this);
     this.logoutHandler = this.logoutHandler.bind(this);
   }
@@ -27,8 +28,8 @@ class UserPanel extends Component {
     const { isExpanded } = this.state;
 
     return (
-      <div className={isExpanded ? 'auth-bar expanded' : 'auth-bar'}>
-        <div className="user-panel">
+      <div className={ isExpanded ? 'user-info.expanded' : 'user-info' }>
+        <div className='user-panel'>
           <span className="glyphicon glyphicon-user" />
           <Link to="profile" className="link">{ user.displayName || user.email }</Link>
           <button onClick={this.expandPanel} className="glyphicon glyphicon-menu-down control" />
