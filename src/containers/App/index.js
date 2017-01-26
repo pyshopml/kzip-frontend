@@ -14,9 +14,9 @@ const App = ({ children }) => (
     <Sidebar />
     <section className="layout-main-area">
       <Header />
-      <div>
+      <section className='layout-main-content'>
         { children }
-      </div>
+      </section>
     </section>
   </div>
 );
