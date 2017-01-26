@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Logo = () => 
-  <div className="layout-logo">
+  <div className="layout-logo logo">
     <h2>ЯГражданин</h2>
   </div>;
 
