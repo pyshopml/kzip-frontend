@@ -5,7 +5,7 @@ const Navigation = () => (
   <nav>
     <ul>
       <li>
-        <Link className="link nav-link" to="/applications">
+        <Link className="link nav-link" to="/posts">
           <span className="glyphicon glyphicon-book" />
           Заявки
         </Link>

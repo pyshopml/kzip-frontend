@@ -36,10 +36,10 @@ Account.propTypes = {
   successMsg: PropTypes.string.isRequired
 };
 
-const mapStateToProps = ({ updateProfile }) => ({
-  inProgress: updateProfile.inProgress,
-  errorMsg: updateProfile.errorMsg,
-  successMsg: updateProfile.successMsg
+const mapStateToProps = ({ global: { account } }) => ({
+  inProgress: account.inProgress,
+  errorMsg: account.errorMsg,
+  successMsg: account.successMsg
 });
 
 const mapDispatchToProps = (dispatch) => ({
