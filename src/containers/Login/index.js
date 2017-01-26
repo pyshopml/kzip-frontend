@@ -48,8 +48,8 @@ Login.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  errorMsg: state.login.errorMsg,
-  inProgress: state.login.inProgress,
+  errorMsg: state.global.login.errorMsg,
+  inProgress: state.global.login.inProgress,
 });
 
 const mapDispatchToProps = dispatch => ({
