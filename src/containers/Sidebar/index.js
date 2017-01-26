@@ -38,7 +38,7 @@ class Sidebar extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({ 
+const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout()) 
 });
 
