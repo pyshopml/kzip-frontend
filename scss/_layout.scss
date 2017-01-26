@@ -1,4 +1,4 @@
-.container {
+.layout-container {
   width : 960px;
   margin : 0 auto;
   position: relative;
@@ -16,7 +16,7 @@
     } // .logo-area
   } // .sidebar
 
-  .main-area {
+  .layout-main-area {
     position: absolute;
     left: 250px;
     display : inline-block;
@@ -24,7 +24,7 @@
     background: $main-area-bg;
     height : 93.2vh;
 
-    .header {
+    .layout-header {
       height: 65px;
       background: $header-bg;
       padding-top : 16px;
@@ -70,10 +70,10 @@
 
     } // .header
 
-    .settings-page {
+    .layout-settings-page {
       padding : 20px;
       
-      .settings-form {
+      .layout-settings-form {
         margin : 0 auto;
         position: relative;
 
@@ -88,7 +88,7 @@
           position: relative;  
         }
 
-      } // settings-form
-    } // .settings-page
-  } // .main-area
-} // .container
+      } // .layout-settings-form
+    } // .layout-settings-page
+  } // .layout-main-area
+} // .layout-container

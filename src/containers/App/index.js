@@ -10,9 +10,9 @@ import Sidebar from '../Sidebar';
 import Header from '../../components/Header';
 
 const App = ({ children }) => (
-  <div className="container">
+  <div className="layout-container">
     <Sidebar />
-    <section className="main-area">
+    <section className="layout-main-area">
       <Header />
       <div>
         { children }
