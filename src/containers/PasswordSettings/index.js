@@ -45,7 +45,7 @@ PasswordPage.propTypes = {
   changePassword: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ password }) => ({
+const mapStateToProps = ({ global: { password } }) => ({
   inProgress: password.inProgress,
   errorMsg: password.errorMsg,
   successMsg: password.successMsg,
