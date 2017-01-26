@@ -6,7 +6,7 @@
 * Nick Luparev nikita.luparev@gmail.com
 ------------------------------------------------------------------------------- */
 import React, { PropTypes } from 'react';
-import Sidebar from '../../components/Sidebar';
+import Sidebar from '../Sidebar';
 import Header from '../../components/Header';
 
 const App = ({ children }) => (

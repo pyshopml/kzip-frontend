@@ -8,9 +8,9 @@
 import React, { Component, PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Spinner } from 'elemental';
-import { notEmpty } from '../../../utils/form_validations';
-import firebase from '../../../utils/auth';
-import RenderField from '../../common/RenderField';
+import { notEmpty } from '../../utils/form_validations';
+import firebase from '../../utils/auth';
+import RenderField from '../../components/RenderField';
 
 const passwordEqual = (value, { newPassword, newPasswordConfirmation }) => (
   newPassword === newPasswordConfirmation ? undefined : 'Пароли должны совпадать'

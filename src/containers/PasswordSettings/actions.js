@@ -1,4 +1,4 @@
-import firebase from '../utils/auth';
+import firebase from '../../utils/auth';
 import * as types from './constants';
 
 // ------------------------ BEGIN ACTION CREATORS ---------------------

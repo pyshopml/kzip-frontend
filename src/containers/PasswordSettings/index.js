@@ -6,12 +6,12 @@
 * Nick Luparev nikita.luparev@gmail.com
 ------------------------------------------------------------------------------- */
 import React, { Component, PropTypes } from 'react';
-import PasswordForm from './PasswordForm';
 import { connect } from 'react-redux';
-import AlertBox from '../../common/AlertBox';
-import SuccessBox from '../../common/SuccessBox';
-import { changePassword } from '../../../actions/passwordChangeActions.js';
 import { isEmpty } from 'ramda';
+import Form from './Form';
+import AlertBox from '../../components/AlertBox';
+import SuccessBox from '../../components/SuccessBox';
+import { changePassword } from './actions';
 
 class PasswordPage extends Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class PasswordPage extends Component {
       <section className="auth-form">
         <AlertBox error={ errorMsg } />
         <SuccessBox msg={ successMsg } />
-        <PasswordForm onSubmit={ this.handleSubmit } inProgress={ inProgress } />
+        <Form onSubmit={ this.handleSubmit } inProgress={ inProgress } />
       </section>
     );
   }

@@ -1,5 +1,5 @@
 import { push } from 'react-router-redux';
-import firebase from '../utils/auth';
+import firebase from '../../utils/auth';
 import * as types from './constants';
 
 // ------------------------ BEGIN ACTION CREATORS ---------------------
@@ -9,40 +9,20 @@ const loginStarted = () => (
 
 const loginFinisehd = () => (dispatch) => {
   dispatch({ type: types.LOGIN_FINISHED });
-  dispatch(push('/applications'));
+  dispatch(push('/posts'));
 };
 
 const loginFailed = error => (
   { type: types.LOGIN_FAILED, error }
-);
-
-const logoutStarted = () => (
-  { type: types.LOGOUT_STARTED }
-);
-
-const logoutFinished = () => (
-  { type: types.LOGOUT_FINISHED }
-);
-
-const logoutFailer = () => (
-  { type: types.LOGOUT_FAILED }
 );
 // ------------------------ END ACTION CREATORS ---------------------
 
 const login = ({ email, password }) => (dispatch) => {
   dispatch(loginStarted());
 
-  firebase.default.auth().signInWithEmailAndPassword(email, password)
+  firebase.auth().signInWithEmailAndPassword(email, password)
     .then(() => dispatch(loginFinisehd()))
     .catch(err => dispatch(loginFailed(err)));
 };
 
-const logout = () => (dispatch) => {
-  dispatch(logoutStarted());
-
-  firebase.default.auth().signOut()
-    .then(() => dispatch(logoutFinished()))
-    .catch(() => dispatch(logoutFailer()));
-};
-
-export { login, logout };
+export { login };

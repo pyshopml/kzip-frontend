@@ -11,6 +11,7 @@ import accountReducer from '../AccountSettings/reducer';
 import loginReducer from  '../Login/reducer';
 import passwordReducer from '../PasswordSettings/reducer';
 import signupReducer from '../Signup/reducer';
+import sidebarReducer from '../Sidebar/reducer';
 
 const appReducer = (state = {}, action) => {
   switch(action.type) {
@@ -26,4 +27,5 @@ export default (state = {}, action) => ({
   login: loginReducer(state.login, action),
   password: passwordReducer(state.password, action),
   signup: signupReducer(state.signup, action),
+  sidebar: sidebarReducer(state.sidebar, action),
 });

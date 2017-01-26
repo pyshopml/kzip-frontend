@@ -1,11 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
-import { connect } from 'react-redux';
-import { logout } from '../../actions/loginActions';
 
 class UserPanel extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       isExpanded: false,
@@ -57,18 +55,8 @@ class UserPanel extends Component {
 }
 
 UserPanel.propTypes = {
-  user: PropTypes.shape({
-    email: PropTypes.string.isRequired,
-    uid: PropTypes.string.isRequired,
-    displayName: PropTypes.string,
-  }),
+  user: PropTypes.shape().isRequired,
   logout: PropTypes.func.isRequired,
 };
 
-
-const mapDispatchToProps = dispatch => (
-  { logout: () => dispatch(logout()) }
-);
-
-
-export default connect(null, mapDispatchToProps)(UserPanel);
+export default UserPanel;

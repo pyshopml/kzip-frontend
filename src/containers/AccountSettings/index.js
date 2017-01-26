@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { isEmpty } from 'ramda';
-import AccountForm from './AccountForm';
+import Form from './Form';
 import { updateUserProfile } from './actions';
 import AlertBox from '../../components/AlertBox';
 import SuccessBox from '../../components/SuccessBox';
@@ -24,7 +24,7 @@ class Account extends Component {
       <section className="auth-form">
         <AlertBox error={ errorMsg } />
         <SuccessBox msg={ successMsg } />
-        <AccountForm onSubmit={ this.handleSubmit } inProgress={ inProgress } />
+        <Form onSubmit={ this.handleSubmit } inProgress={ inProgress } />
       </section>);
   }
 }
