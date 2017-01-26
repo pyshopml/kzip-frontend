@@ -47,9 +47,9 @@ Login.propTypes = {
   inProgress: PropTypes.bool,
 };
 
-const mapStateToProps = state => ({
-  errorMsg: state.global.login.errorMsg,
-  inProgress: state.global.login.inProgress,
+const mapStateToProps = ({ global: { login } }) => ({
+  errorMsg: login.errorMsg,
+  inProgress: login.inProgress,
 });
 
 const mapDispatchToProps = dispatch => ({

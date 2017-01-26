@@ -40,7 +40,7 @@ Signup.propTypes = {
   inProgress: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = ({ signup }) => ({
+const mapStateToProps = ({ global: { signup } }) => ({
   errorMsg: signup.errorMsg,
   inProgress: signup.inProgress,
 });
