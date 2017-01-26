@@ -1,20 +1,11 @@
+@import "sidebar";
+@import "header";
+@import "settings_page";
+
 .layout-container {
   width : 960px;
   margin : 0 auto;
   position: relative;
-
-  .layout-sidebar {
-    width : 250px;
-    height : 99.98vh;
-    position: absolute;
-    left: 0;
-    background: $sidebar-bg;
-
-    .layout-logo {
-      background: $logo-bg;
-      height: 65px;
-    } // .logo-area
-  } // .sidebar
 
   .layout-main-area {
     position: absolute;
@@ -24,71 +15,5 @@
     background: $main-area-bg;
     height : 93.2vh;
 
-    .layout-header {
-      height: 65px;
-      background: $header-bg;
-      padding-top : 16px;
-
-      .layout-search-bar {
-        display: block;
-        width : 90%;
-        margin : 0 auto;
-        background: $logo-bg;
-        border : 0;
-        padding : 8px 14px;
-        color : $main-text-color;
-        border-radius : 5px;
-        font-size : 1em;
-
-        &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-          text-align: center;
-          font-size : 0.9em;
-        }
-
-        &::-moz-placeholder { /* Firefox 19+ */
-          text-align: center;
-          font-size : 0.9em;
-        }
-
-        &:-ms-input-placeholder { /* IE 10+ */
-          text-align: center;
-          font-size : 0.9em;
-        }
-
-        &:-moz-placeholder { /* Firefox 18- */
-          text-align: center;
-          font-size : 0.9em;
-        }    
-
-        &:hover, &:active, &:focus {
-          outline: none;
-          background: $area-hover;
-          border : 0;
-        } // hover
-
-      } // input[type="text"]
-
-    } // .header
-
-    .layout-settings-page {
-      padding : 20px;
-      
-      .layout-settings-form {
-        margin : 0 auto;
-        position: relative;
-
-        .alert {
-          position: absolute;
-          top: 5px !important;
-          line-height: 12px;
-          width: 405px;
-        }
-        
-        .form-group {
-          position: relative;  
-        }
-
-      } // .layout-settings-form
-    } // .layout-settings-page
   } // .layout-main-area
 } // .layout-container
