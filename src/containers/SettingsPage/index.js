@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';
 import { last } from 'ramda';
+import SettingsNavigation from './SettingsNavigation';
 
 class Settings extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class Settings extends Component {
   }
 
   getCurrentTab() {
-    const {pathname} = this.props.location;
+    const { pathname } = this.props.location;
     const vals = pathname.split('/')
     return last(vals);
   }
@@ -29,22 +29,12 @@ class Settings extends Component {
     const currentTab = this.getCurrentTab();
 
     return (
-      <div className='layout-settings-page'>
-        <ul className="nav nav-tabs">
-          <li role="presentation" className={ currentTab === 'account' ? 'active' : '' }>
-            <Link to="/settings/account">Аккаунт</Link>
-          </li>
-          <li role="presentation" className={ currentTab === 'password' ? 'active' : '' }>
-            <Link to="/settings/password">Управление паролем</Link>
-          </li>
-          <li role="presentation" className={currentTab === 'notifications' ? 'active' : ''}>
-            <Link to="/settings/notifications">Уведомления</Link>
-          </li>
-        </ul>
-        <div className="layout-settings-form">
+      <article className='l-settings-page'>
+        <SettingsNavigation currentTab={ currentTab } />
+        <section className="l-settings-form">
           { this.props.children }
-        </div>
-      </div>
+        </section>
+      </article>
     );
   }
 };
