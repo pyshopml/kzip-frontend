@@ -1,11 +1,11 @@
 import React from 'react';
 
 const Header = () => (
-  <header className="layout-header">
+  <header className="l-header">
     <input 
       type="text" 
       placeholder="Найти интересующую Вас информацию" 
-      className="layout-search-bar"
+      className="search-bar"
     />
   </header>
 );

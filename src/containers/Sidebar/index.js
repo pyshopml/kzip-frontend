@@ -29,7 +29,7 @@ class Sidebar extends Component {
 
   render() {
     return (
-      <aside className="layout-sidebar">
+      <aside className="l-sidebar">
         <Logo />
         { this.currentView() }
         <Navigation />
