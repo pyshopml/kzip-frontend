@@ -10,7 +10,7 @@ const SettingsNavigation = ({ currentTab }) => (
       <li role="presentation" className={ currentTab === 'password' ? 'active' : '' }>
         <Link to="/settings/password">Управление паролем</Link>
       </li>
-      <li role="presentation" className={currentTab === 'notifications' ? 'active' : ''}>
+      <li role="presentation" className={ currentTab === 'notifications' ? 'active' : '' }>
         <Link to="/settings/notifications">Уведомления</Link>
       </li>
     </ul>

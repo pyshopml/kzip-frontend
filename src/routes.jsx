@@ -20,7 +20,7 @@ import Notifications from './containers/NotificationsSettings';
 export default (store) => {
 
   const MatchWhenAuthed = (nextState, replace) => {
-    const { login: { authed } } = store.getState();
+    const { global: { login: { authed } } } = store.getState();
     if (!authed) {
       replace({
         pathname: '/login',
