@@ -1,5 +1,5 @@
 // import { push } from 'react-router-redux';  possibly will need later
-import firebase from '../../utils/auth';
+import { firebase } from '../../utils/auth';
 import * as types from './constants';
 
 const logout = () => (dispatch) => {

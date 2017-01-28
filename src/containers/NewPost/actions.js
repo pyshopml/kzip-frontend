@@ -6,8 +6,8 @@
 * Nick Luparev nikita.luparev@gmail.com
 ------------------------------------------------------------------------------- */
 import { push } from 'react-router-redux';
-import { database } from '../utils/auth';
-import * as types from '../constants/actionTypes';
+import { database } from '../../utils/auth';
+import * as types from './constants';
 
 const reference = '/posts';
 

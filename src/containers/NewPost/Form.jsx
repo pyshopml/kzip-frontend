@@ -9,7 +9,7 @@ import React, { PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Spinner } from 'elemental';
 import { notEmpty } from '../../utils/form_validations';
-import RenderField from '../../container/RenderField';
+import RenderField from '../../components/RenderField';
 
 const NewPostForm = ({ handleSubmit, inProgress }) => (
   <form onSubmit={ handleSubmit }> 
