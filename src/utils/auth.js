@@ -17,7 +17,7 @@ const config = {
 
 firebase.initializeApp(config);
 
-const db = firebase.database();
+const database = firebase.database();
 
 // const errCatch = (err) => {
 //   const { code, message } = err;

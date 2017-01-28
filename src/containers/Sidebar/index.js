@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import firebase from '../../utils/auth';
+import { firebase } from '../../utils/auth';
 import Navigation from '../../components/Navigation';
 import AuthBar from '../../components/AuthBar';
 import UserPanel from '../../components/UserPanel';

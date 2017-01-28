@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import firebase from '../../utils/auth';
+import { firebase } from '../../utils/auth';
 
 const Profile = () => {
   const user = firebase.auth().currentUser;

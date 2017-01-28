@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import { database } from '../../utils/auth';
-
-const Post = ({ item }) => 
-  <div className="post">
-    <h3>{ item.title }</h3>
-    <p>{ item.description }</p>
-  </div>;
+import Post from './Post';
 
 class Posts extends Component {
   constructor(props) {
