@@ -17,7 +17,7 @@ const config = {
 
 firebase.initializeApp(config);
 
-// const db = firebase.database();
+const db = firebase.database();
 
 // const errCatch = (err) => {
 //   const { code, message } = err;
@@ -44,4 +44,4 @@ firebase.initializeApp(config);
 //   firebase.auth().onAuthStateChanged(cb);
 // };
 
-export default firebase;
+export { firebase, database };
