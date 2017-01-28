@@ -16,6 +16,7 @@ import Profile from './containers/ProfilePage';
 import AccountSettings from './containers/AccountSettings';
 import PasswordSettings from './containers/PasswordSettings';
 import Notifications from './containers/NotificationsSettings';
+import NewPost from './containers/NewPost';
 
 export default (store) => {
 
@@ -32,16 +33,17 @@ export default (store) => {
   return (
     <Route name="app" path="/" component={App} >
       <IndexRoute component={Posts} />
-      <Route path="/posts" component={Posts} />
-      <Route path="/login" component={Login} />
-      <Route path="/signup" component={Signup} />
-      <Route path="/settings" component={Settings} onEnter={MatchWhenAuthed}>
+      <Route path="/posts" component={ Posts } />
+      <Route path="/login" component={ Login } />
+      <Route path="/signup" component={ Signup } />
+      <Route path="/settings" component={ Settings } onEnter={ MatchWhenAuthed }>
         <IndexRedirect to="account" />
         <Route path="account" component={AccountSettings} />
         <Route path="password" component={PasswordSettings} />
         <Route path="notifications" component={Notifications} />
       </Route>
-      <Route path="/profile" component={Profile} />
+      <Route path="/profile" component={ Profile } />
+      <Route path="/newpost" component={ NewPost } onEnter={ MatchWhenAuthed } />
     </Route>
   );
 };
