@@ -27,3 +27,11 @@
     margin-right : 8px;
   } // span
 } // .user-controls
+
+.link {
+  color: white;
+
+  &:hover, &:active, &:focus {
+    color: white;
+  }
+}
