@@ -1,6 +1,11 @@
+$main-text-color : #a7b3cb;
+$area-hover: #3a4357;
+$logo-bg : #424b5f;
+$header-bg : #4f5a6e;
+
 .header {
   height: 65px;
-  background: #4f5a6e;
+  background: $header-bg;
   padding-top : 16px;
 }
 
@@ -8,36 +13,36 @@
   display: block;
   width : 90%;
   margin : 0 auto;
-  background: #424b5f;
+  background: $logo-bg;
   border : 0;
   padding : 8px 14px;
-  color : #a7b3cb;
+  color : $main-text-color;
   border-radius : 5px;
   font-size : 1em;
-}
 
-.searchBar::-webkit-input-placeholder { 
-  text-align: center;
-  font-size : 0.9em;
-}
+  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    text-align: center;
+    font-size : 0.9em;
+  }
 
-.searchBar::-moz-placeholder { 
-  text-align: center;
-  font-size : 0.9em;
-}
+  &::-moz-placeholder { /* Firefox 19+ */
+    text-align: center;
+    font-size : 0.9em;
+  }
 
-.searchBar:-ms-input-placeholder { 
-  text-align: center;
-  font-size : 0.9em;
-}
+  &:-ms-input-placeholder { /* IE 10+ */
+    text-align: center;
+    font-size : 0.9em;
+  }
 
-.searchBar:-moz-placeholder { 
-  text-align: center;
-  font-size : 0.9em;
-}    
+  &:-moz-placeholder { /* Firefox 18- */
+    text-align: center;
+    font-size : 0.9em;
+  }    
 
-.searchBar:hover, .searchBar:active, .searchBar:focus {
-  outline: none;
-  background: #3a4357;
-  border : 0;
-} 
+  &:hover, &:active, &:focus {
+    outline: none;
+    background: $area-hover;
+    border : 0;
+  } // hover
+} // .search-bar
