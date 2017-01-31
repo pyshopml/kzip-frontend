@@ -20,6 +20,10 @@ var config = {
           presets : ['es2015', 'react']
         }
       },
+      {
+        test: /\.css/,
+        loaders: ['style', 'css?modules&localIdentName=[local]---[hash:base64:5]', 'cssnext']
+      }
       /*
       {
         test: /\.jsx?$/,
