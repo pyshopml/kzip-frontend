@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import css from './style.css';
+import css from './style.scss';
 
 const NavLink = ({ path, name, icon }) => (
-  <Link className={css.navLink} to={path}>
+  <Link className={css.nav_link} to={path}>
     <span className={icon} />
     { name }
   </Link>
