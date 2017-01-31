@@ -1,6 +1,6 @@
 $error-color : #a94442;
 
-.auth-form {
+.auth_form {
   width : 60%;
   padding-top : 90px;
   margin : 0 auto;
@@ -11,27 +11,6 @@ $error-color : #a94442;
     font-size : 1.2em;
     margin-bottom : 16px;
   }
-
-  .alert {
-    position: absolute;
-    top: -16px;
-    width: 405px;
-    font-size : 0.9em;
-  }
-
-  form {
-    .input-field {
-      position : relative;
-    } // .input-field
-
-    .error-msg {
-      color : $error-color;
-      position : absolute;
-      top : 9px;
-      right : 8px;
-      font-size : 0.9em;
-    } // .error-msg
-  } // form
 
   & > div {
     margin-top: 22px;

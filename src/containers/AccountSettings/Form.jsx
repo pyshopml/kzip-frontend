@@ -11,6 +11,8 @@ import { Spinner } from 'elemental';
 import { firebase } from '../../utils/auth';
 import { isEmpty } from 'ramda';
 
+import css from './form_style.scss';
+
 class AccountForm extends Component {
   constructor(props) {
     super(props);
@@ -67,14 +69,25 @@ class AccountForm extends Component {
     const { inProgress } = this.props;
 
     return (
-      <form>
+      <form className={ css.form }>
         <div className="form-group">
-          <input onChange={ e => this.updateDisplayName(e.target.value) } type="text" className="form-control" value={displayName} placeholder="Имя пользователя" />
+          <input 
+            onChange={ e => this.updateDisplayName(e.target.value) } 
+            type="text" 
+            className={`form-control ${css.input_field}`}
+            value={displayName} 
+            placeholder="Имя пользователя" />
           <span className="error-msg">{ nameError }</span>
         </div>
         <div className="form-group">
-          <input onChange={ e => this.updateEmail(e.target.value) } type="email" value={email} className="form-control" id="password" placeholder="Пароль" />
-          <span className="error-msg">{ emailError }</span>
+          <input
+            onChange={ e => this.updateEmail(e.target.value) } 
+            type="email" 
+            value={email} 
+            className={`form-control ${css.input_field}`}
+            id="password" 
+            placeholder="Пароль" />
+          <span className={ css.error-msg }>{ emailError }</span>
         </div>
         <button disabled={ !isEmpty(nameError) || !isEmpty(emailError) } onClick={this.handleSubmit} className="btn btn-primary">
           { inProgress ? <Spinner type="inverted" /> : 'Сохранить' }

@@ -30,6 +30,13 @@ export default (store) => {
     }
   };
 
+  const logout = (nextState, replace, cb) => {
+    const user = firebase.auth().currentUser;
+    firebase.auth().signOut()
+    replace('/posts');
+    cb();
+  }
+
   const isLoggedIn = (nextState, replace, callback) => {
     const user = firebase.auth().currentUser;
     if (user) { callback(); }
@@ -44,6 +51,7 @@ export default (store) => {
       <IndexRoute component={Posts} />
       <Route path="/posts" component={ Posts } />
       <Route path="/login" component={ Login } />
+      <Route path="/logout" component={ Login } onEnter={ logout } />
       <Route path="/signup" component={ Signup } />
       <Route path="/settings" component={ Settings } onEnter={ isLoggedIn }>
         <IndexRedirect to="account" />

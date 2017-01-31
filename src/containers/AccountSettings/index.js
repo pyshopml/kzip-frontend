@@ -6,6 +6,8 @@ import { updateUserProfile } from './actions';
 import AlertBox from '../../components/AlertBox';
 import SuccessBox from '../../components/SuccessBox';
 
+import css from './style.scss';
+
 class Account extends Component {
   constructor(props) {
     super(props);
@@ -21,7 +23,7 @@ class Account extends Component {
     const { inProgress, errorMsg, successMsg } = this.props;
 
     return (
-      <section className="auth-form">
+      <section className={ css.auth_form }>
         <AlertBox error={ errorMsg } />
         <SuccessBox msg={ successMsg } />
         <Form onSubmit={ this.handleSubmit } inProgress={ inProgress } />
