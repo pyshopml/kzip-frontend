@@ -1,12 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router';
+import NavLink from '../NavLink';
 
 const Authbar = () => (
   <div className="user-info">
-    <Link className="nav-link" to="/login">
-      <span className="glyphicon glyphicon-lock" />
-      Войти на сайт
-    </Link>
+    <NavLink path="/login" name="Войти на сайт" icon="glyphicon glyphicon-lock" />
   </div>
 );
 
