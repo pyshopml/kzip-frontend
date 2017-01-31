@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { database } from '../../utils/auth';
-import Post from './Post';
+import Post from '../../components/Post';
 
 class Posts extends Component {
   constructor(props) {

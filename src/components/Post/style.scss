@@ -1,0 +1,23 @@
+$logo-bg : #424b5f;
+$post-bg-color: rgba(234, 235, 230, 0.4);
+$header-bg : #4f5a6e;
+
+.post {
+  margin-bottom: 8px;
+  padding: 10px;
+  border-left: 3px solid $logo-bg;
+  background: $post-bg-color;
+
+  h3, p {
+    color: $header-bg;
+  }
+
+  h3 {
+    line-height: 10px;
+  }
+
+  p {
+    font-size: 0.9em;
+  }
+}
+

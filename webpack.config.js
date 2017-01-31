@@ -4,6 +4,8 @@ var path      = require('path');
 var BUILD_DIR = path.join(__dirname, '/build');
 var APP_DIR   = path.join(__dirname, '/src');
 
+// var ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 var config = {
   entry : APP_DIR + '/app.js',
   output : {
@@ -21,11 +23,15 @@ var config = {
         }
       },
       {
-        test: /\.css/,
-        loaders: ['style', 'css?modules&localIdentName=[local]---[hash:base64:5]', 'cssnext']
+        test: /(\.scss|\.css)$/,
+        loaders: [
+          'style', 
+          'css?modules&localIdentName=[local]---[hash:base64:5]', 'cssnext', 'sass'
+          ]
       }
-      /*
+      /*      
       {
+        test: /\.css/,
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loaders: ['babel-loader', 'eslint-loader']
