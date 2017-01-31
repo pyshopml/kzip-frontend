@@ -1,21 +1,16 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
+import NavLink from '../NavLink';
 
 const ControlsNavigation = ({ logoutHandler }) => {
   return (
      <nav>
       <ul>
         <li>
-          <Link to="/settings" className="link nav-link dark">
-            <span className="glyphicon glyphicon-cog" aria-hidden="true" />
-            Настройки
-          </Link>
+          <NavLink path="/settings" icon="glyphicon glyphicon-cog" name="Настройки" />
         </li>
         <li>
-          <a href="#logout" onClick={logoutHandler} className="link nav-link dark">
-            <span className="glyphicon glyphicon-log-out" aria-hidden="true" />
-            Выход
-          </a>
+          <NavLink path="/logout" icon="glyphicon glyphicon-log-out" name="Выход" />
         </li>
       </ul>
     </nav>

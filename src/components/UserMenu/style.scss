@@ -1,0 +1,29 @@
+.user_menu_controls {
+  color : white;
+  display: block;
+  padding-left : 12px;
+  line-height : 60px;
+  position : relative;
+  font-size : 0.9em;
+  font-family: 'PT Sans', sans-serif;
+  font-weight : bold;
+
+  .expand_control {
+    position : absolute;
+    right : 10px;
+    top : 24px;
+    transition: all .5s ease;
+    border : none;
+    background : transparent;
+
+    &:hover, &:focus {
+      cursor : pointer;
+      border : none;
+      outline: 0;
+    }
+  } // .control
+
+  span {
+    margin-right : 8px;
+  } // span
+} // .user-controls
