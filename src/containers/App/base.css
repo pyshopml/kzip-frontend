@@ -39,6 +39,10 @@ a {
   color: white;
 }
 
+a:active, a:focus {
+  color: white;
+}
+
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

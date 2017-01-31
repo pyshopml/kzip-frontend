@@ -1,0 +1,43 @@
+.header {
+  height: 65px;
+  background: #4f5a6e;
+  padding-top : 16px;
+}
+
+.searchBar {
+  display: block;
+  width : 90%;
+  margin : 0 auto;
+  background: #424b5f;
+  border : 0;
+  padding : 8px 14px;
+  color : #a7b3cb;
+  border-radius : 5px;
+  font-size : 1em;
+}
+
+.searchBar::-webkit-input-placeholder { 
+  text-align: center;
+  font-size : 0.9em;
+}
+
+.searchBar::-moz-placeholder { 
+  text-align: center;
+  font-size : 0.9em;
+}
+
+.searchBar:-ms-input-placeholder { 
+  text-align: center;
+  font-size : 0.9em;
+}
+
+.searchBar:-moz-placeholder { 
+  text-align: center;
+  font-size : 0.9em;
+}    
+
+.searchBar:hover, .searchBar:active, .searchBar:focus {
+  outline: none;
+  background: #3a4357;
+  border : 0;
+} 

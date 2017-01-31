@@ -9,12 +9,15 @@ import React, { PropTypes } from 'react';
 import Sidebar from '../Sidebar';
 import Header from '../../components/Header';
 
+import base from './base.css';
+import css from './layout.css';
+
 const App = ({ children }) => (
-  <div className="l-container">
+  <div className={css.container}>
     <Sidebar />
-    <section className="l-main-area">
+    <section className={css.mainArea}>
       <Header />
-      <section className='l-main-content'>
+      <section className={css.mainContent}>
         { children }
       </section>
     </section>

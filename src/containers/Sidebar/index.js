@@ -7,6 +7,8 @@ import UserPanel from '../../components/UserPanel';
 import Logo from '../../components/Logo';
 import { logout } from './actions';
 
+import css from './style.css';
+
 class Sidebar extends Component {
   componentWillMount() {
     this.unset = firebase.auth().onAuthStateChanged(() => {
@@ -29,7 +31,7 @@ class Sidebar extends Component {
 
   render() {
     return (
-      <aside className="l-sidebar">
+      <aside className={css.sidebar}>
         <Logo />
         { this.currentView() }
         <Navigation />

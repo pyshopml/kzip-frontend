@@ -1,0 +1,31 @@
+.container {
+  width : 960px;
+  margin : 0 auto;
+  position: relative;
+}
+
+.mainArea {
+  position: absolute;
+  left: 250px;
+  display : inline-block;
+  width : 710px;
+  background: #fff;
+  height : 100vh;
+}
+
+.mainContent {
+  padding: 16px;
+}
+
+.settings-page {
+  padding : 20px;
+}
+
+.settings-form {
+  margin : 0 auto;
+  position: relative;
+}
+
+.form-group {
+  position: relative;  
+}
