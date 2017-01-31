@@ -1,0 +1,12 @@
+.logo {
+  background: #424b5f;
+  height: 65px;
+}
+
+.logoText {
+  color : #fff;
+  line-height : 65px;
+  text-align: center;
+  font-weight : bold;
+  font-size : 1.2em;
+}

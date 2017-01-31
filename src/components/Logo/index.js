@@ -1,8 +1,10 @@
 import React from 'react';
 
+import css from './style.css';
+
 const Logo = () => 
-  <div className="l-logo logo">
-    <h2>ЯГражданин</h2>
+  <div className={css.logo}>
+    <h2 className={css.logoText}>ЯГражданин</h2>
   </div>;
 
 export default Logo;

@@ -47,7 +47,8 @@ gulp.task('webpack', () => {
 });
 
 gulp.task('watch', ['browser-sync'], () => {
-  gulp.watch("scss/**/*.scss", ['sass']);
+  // gulp.watch("scss/**/*.scss", ['sass']);
+  gulp.watch('src/**/*.css', ['webpack']);
   gulp.watch('src/**/*.js', ['webpack']);
   gulp.watch('src/**/*.jsx', ['webpack']);
   gulp.watch('build/*.*').on('change', bs.reload);

@@ -1,14 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router';
+import NavLink from '../NavLink';
 
 const Navigation = () => (
   <nav>
     <ul>
       <li>
-        <Link className="link nav-link" to="/posts">
-          <span className="glyphicon glyphicon-book" />
-          Заявки
-        </Link>
+        <NavLink path="/posts" name="Заявки" icon={"glyphicon glyphicon-book"} />
       </li>
     </ul>
   </nav>
