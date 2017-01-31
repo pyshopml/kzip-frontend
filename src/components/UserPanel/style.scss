@@ -1,0 +1,29 @@
+$border-color : #485265;
+
+.user_info {
+  height: 65px;
+  border-bottom : 1px solid $border-color;
+  transition: all .5s ease;
+  overflow: hidden;
+
+  &.expanded {
+    height : 148px;
+
+    .control {
+      transform: rotate(-180deg);
+    }
+  } 
+  
+  /*
+  & > a.nav-link {
+    color : white;
+    line-height : 38px;
+    
+    &:hover {
+      background: transparent;
+      text-decoration: underline;
+    }
+  } // a.nav-link
+  */
+} // .user-info
+
