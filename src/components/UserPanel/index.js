@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ControlsNavigation from './ControlsNavigation';
-import UserMenu from './UserMenu';
+import UserMenu from '../UserMenu';
 
 class UserPanel extends Component {
   constructor(props) {
