@@ -13,6 +13,8 @@ import LoginForm from './LoginForm';
 import { login } from './actions';
 import AlertBox from '../../components/AlertBox';
 
+import css from './style.scss';
+
 class Login extends Component {
   constructor(props, context) {
     super(props, context);
@@ -28,13 +30,17 @@ class Login extends Component {
     const { errorMsg, inProgress } = this.props;
 
     return (
-      <section className="auth-form">
+      <section className={css.auth_form}>
         <AlertBox error={errorMsg} />
         <h2>Вход</h2>
         <LoginForm onSubmit={this.handleSubmit} inProgress={inProgress} />
         <div>
-          <Link to="">Восстановить Пароль</Link>
-          <Link to="/signup">Создать аккаунт</Link>
+          <Link className={css.link} to="">
+            Восстановить Пароль
+          </Link>
+          <Link className={css.link} to="/signup">
+            Создать аккаунт
+          </Link>
         </div>
       </section>
     );

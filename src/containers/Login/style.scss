@@ -1,0 +1,29 @@
+$error-color : #a94442;
+$link-color : #4f5a6e;
+
+.auth_form {
+  width : 60%;
+  padding-top : 90px;
+  margin : 0 auto;
+  position: relative;
+
+  h2 {
+    font-weight : bold;
+    font-size : 1.2em;
+    margin-bottom : 16px;
+  }
+
+  & > div {
+    margin-top: 22px;
+  } // div
+} // .auth-form
+
+.link {
+  color: $link-color;
+  text-decoration: none;
+  font-size : 0.9em;
+
+  &:last-child {
+    float : right;
+  }
+}
