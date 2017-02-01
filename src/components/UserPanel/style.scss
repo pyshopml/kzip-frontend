@@ -1,0 +1,12 @@
+$border-color : #485265;
+$bg: #3a4357;
+
+.user_panel {
+  transition: all .5s ease;
+  border-bottom: 1px solid $border-color;
+}
+
+.user_panel_expanded {
+  composes: user_panel;
+  background-color: $bg;
+}
