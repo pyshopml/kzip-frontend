@@ -38,7 +38,10 @@ class UserPanel extends Component {
     return (
       <aside className={ this.className() }>
         <UserMenu { ...this.props } expandPanel={ this.expandPanel } />
-        <ControlsNavigation logoutHandler={ this.logoutHandler } />
+        <ControlsNavigation 
+          hide={ !this.state.isExpanded } 
+          logoutHandler={ this.logoutHandler } 
+        />
       </aside>
     );
   }
