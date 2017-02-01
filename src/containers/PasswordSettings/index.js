@@ -13,6 +13,8 @@ import AlertBox from '../../components/AlertBox';
 import SuccessBox from '../../components/SuccessBox';
 import { changePassword } from './actions';
 
+import css from './style.scss';
+
 class PasswordPage extends Component {
   constructor(props) {
     super(props);
@@ -29,7 +31,7 @@ class PasswordPage extends Component {
     const { inProgress, errorMsg, successMsg } = this.props;
 
     return (
-      <section className="auth-form">
+      <section className={ css.auth_form }>
         <AlertBox error={ errorMsg } />
         <SuccessBox msg={ successMsg } />
         <Form onSubmit={ this.handleSubmit } inProgress={ inProgress } />
