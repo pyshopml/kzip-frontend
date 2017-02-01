@@ -1,0 +1,13 @@
+$error-color : #a94442;
+
+.input_field {
+  position : relative;
+} // .input-field
+
+.error_msg {
+  color : $error-color;
+  position : absolute;
+  top : 9px;
+  right : 8px;
+  font-size : 0.9em;
+} // .error-msg

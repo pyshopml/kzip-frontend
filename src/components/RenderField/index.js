@@ -7,11 +7,13 @@
 ------------------------------------------------------------------------------- */
 import React, { PropTypes } from 'react';
 
+import css from './style.scss';
+
 const RenderField = ({ input, label, type, meta: { touched, error } }) => (
-  <div className={error ? 'form-group has-error' : 'form-group'}>
-    <div className="input-field">
+  <div className={ error ? 'form-group has-error' : 'form-group' }>
+    <div className={ css.input_field }>
       <input {...input} placeholder={label} type={type} className="form-control" />
-      { touched && (error && <span className="error-msg">{error}</span>) }
+      { touched && (error && <span className={ css.error_msg }>{ error }</span>) }
     </div>
   </div>
 );
