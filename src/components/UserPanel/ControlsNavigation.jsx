@@ -1,12 +1,11 @@
 import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';
 import NavLink from '../NavLink';
 
 import css from './nav_style.scss';
 
 const ControlsNavigation = ({ logoutHandler, hide }) => {
   return (
-     <nav className={ hide ? css.hide : '' }>
+     <nav className={ hide ? css.hide : css.show }>
       <ul>
         <li>
           <NavLink path="/settings" icon="glyphicon glyphicon-cog" name="Настройки" />

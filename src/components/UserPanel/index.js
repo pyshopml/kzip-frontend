@@ -2,8 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import ControlsNavigation from './ControlsNavigation';
 import UserMenu from '../UserMenu';
 
-import css from './style.scss';
-
 class UserPanel extends Component {
   constructor(props) {
     super(props);
@@ -36,8 +34,12 @@ class UserPanel extends Component {
 
   render() {
     return (
-      <aside className={ this.className() }>
-        <UserMenu { ...this.props } expandPanel={ this.expandPanel } />
+      <aside>
+        <UserMenu 
+          { ...this.props } 
+          expandPanel={ this.expandPanel } 
+          isExpanded={ this.state.isExpanded } />
+          
         <ControlsNavigation 
           hide={ !this.state.isExpanded } 
           logoutHandler={ this.logoutHandler } 
