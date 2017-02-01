@@ -6,13 +6,14 @@
 * Nick Luparev nikita.luparev@gmail.com
 ------------------------------------------------------------------------------- */
 import React, { PropTypes, Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
 import { Spinner } from 'elemental';
 import { firebase } from '../../utils/auth';
 import { isEmpty } from 'ramda';
+import autobind from 'autobind-decorator'
 
 import css from './form_style.scss';
 
+@autobind
 class AccountForm extends Component {
   constructor(props) {
     super(props);
@@ -23,10 +24,6 @@ class AccountForm extends Component {
       nameError: '',
       emailError: ''
     }
-
-    this.updateDisplayName = this.updateDisplayName.bind(this);
-    this.updateEmail = this.updateEmail.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -40,23 +37,33 @@ class AccountForm extends Component {
   }
 
   nameValidation(val) {
-    if (isEmpty(val)) this.setState({ nameError: 'Не может быть пустым' });
-    else this.setState({ nameError: '' });
+    let res = null; 
+
+    if (isEmpty(val)) 
+      res = { nameError: 'Не может быть пустым', displayName: val };
+    else 
+      res = { nameError: '', displayName: val };
+
+    this.setState(res);
   }
 
   emailValidation(val) {
-    if (isEmpty(val)) this.setState({ emailError: 'Не может быть пустым' });
-    else this.setState({ emailError: '' });
+    let res = null;
+
+    if (isEmpty(val)) 
+      res = { emailError: 'Не может быть пустым', email: val };
+    else 
+      res = { emailError: '', email: val };
+
+    this.setState(res);
   }
 
   updateDisplayName (str) {
     this.nameValidation(str);
-    this.setState({ displayName: str });
   }
 
   updateEmail (str)  {
     this.emailValidation(str);
-    this.setState({ email: str }); 
   }
 
   handleSubmit() {
@@ -70,26 +77,27 @@ class AccountForm extends Component {
 
     return (
       <form className={ css.form }>
-        <div className="form-group">
+        <div>
           <input 
             onChange={ e => this.updateDisplayName(e.target.value) } 
             type="text" 
-            className={`form-control ${css.input_field}`}
             value={displayName} 
             placeholder="Имя пользователя" />
-          <span className="error-msg">{ nameError }</span>
+          <span className={ css.error_msg }>{ nameError }</span>
         </div>
-        <div className="form-group">
+        <div>
           <input
             onChange={ e => this.updateEmail(e.target.value) } 
             type="email" 
             value={email} 
-            className={`form-control ${css.input_field}`}
             id="password" 
             placeholder="Пароль" />
-          <span className={ css.error-msg }>{ emailError }</span>
+          <span className={ css.error_msg }>{ emailError }</span>
         </div>
-        <button disabled={ !isEmpty(nameError) || !isEmpty(emailError) } onClick={this.handleSubmit} className="btn btn-primary">
+        <button  
+          disabled={ !isEmpty(nameError) || !isEmpty(emailError) } 
+          onClick={this.handleSubmit} 
+          >
           { inProgress ? <Spinner type="inverted" /> : 'Сохранить' }
         </button>
       </form>

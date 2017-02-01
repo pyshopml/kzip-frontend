@@ -1,9 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { last } from 'ramda';
 import SettingsNavigation from './SettingsNavigation';
+import autobind from 'autobind-decorator'
 
 import css from './style.scss';
 
+@autobind
 class Settings extends Component {
   constructor(props) {
     super(props);
@@ -11,8 +13,6 @@ class Settings extends Component {
     this.state = {
       currentTab: 'account'
     };
-
-    this.changeTab = this.changeTab.bind(this);
   }
 
   changeTab(tab) {
