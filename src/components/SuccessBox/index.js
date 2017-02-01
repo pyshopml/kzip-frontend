@@ -3,11 +3,11 @@ import { isEmpty } from 'ramda';
 
 import css from './style.scss';
 
-const msgClass = () => 
-    isEmpty(msg) ? `${css.alert} alert-success ${css.hidden}` :  `${alert} alert-success`
+const msgClass = (msg) => 
+    isEmpty(msg) ? `${css.alert} alert-success ${css.hidden}` :  `${css.alert} alert-success`
 
 const SuccessBox = ({ msg }) => (
-  <div className={ msgClass() } role="alert">
+  <div className={ msgClass(msg) } role="alert">
     { msg }
   </div>
 );

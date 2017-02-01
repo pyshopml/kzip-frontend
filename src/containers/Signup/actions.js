@@ -14,7 +14,7 @@ const signUpFailed = error => (
 
 const signUpFinished = () => (dispatch) => {
   dispatch({ type: types.SIGNUP_FINISHED });
-  dispatch(push('/applications'));
+  dispatch(push('/posts'));
 };
 
 const signUp = ({ email, password }) => (dispatch) => {
