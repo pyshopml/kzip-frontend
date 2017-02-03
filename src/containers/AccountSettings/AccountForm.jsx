@@ -9,11 +9,9 @@ import React, { PropTypes, Component } from 'react';
 import { Spinner } from 'elemental';
 import { firebase } from '../../utils/auth';
 import { isEmpty } from 'ramda';
-import autobind from 'autobind-decorator'
 
 import css from './form_style.scss';
 
-@autobind
 class AccountForm extends Component {
   constructor(props) {
     super(props);
@@ -24,6 +22,10 @@ class AccountForm extends Component {
       nameError: '',
       emailError: ''
     }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateEmail = this.updateEmail.bind(this);
+    this.updateDisplayName = this.updateDisplayName.bind(this);
   }
 
   componentDidMount() {
@@ -77,25 +79,28 @@ class AccountForm extends Component {
 
     return (
       <form className={ css.form }>
-        <div>
+        <div className={`form-group ${css.input_field}`}>
           <input 
             onChange={ e => this.updateDisplayName(e.target.value) } 
-            type="text" 
+            type="text"
+            className="form-control"
             value={displayName} 
             placeholder="Имя пользователя" />
           <span className={ css.error_msg }>{ nameError }</span>
         </div>
-        <div>
+        <div className={`form-group ${css.input_field}`}>
           <input
             onChange={ e => this.updateEmail(e.target.value) } 
             type="email" 
             value={email} 
+            className="form-control"
             id="password" 
             placeholder="Пароль" />
           <span className={ css.error_msg }>{ emailError }</span>
         </div>
         <button  
           disabled={ !isEmpty(nameError) || !isEmpty(emailError) } 
+          className="btn btn-primary"
           onClick={this.handleSubmit} 
           >
           { inProgress ? <Spinner type="inverted" /> : 'Сохранить' }
